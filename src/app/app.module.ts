@@ -1,3 +1,7 @@
+import { environment } from "../environments/environment";
+import { AngularFireModule } from "@angular/fire/compat";
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore/'; 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatIconModule } from '@angular/material/icon';
@@ -17,12 +21,16 @@ import { RouterModule, Route } from '@angular/router';
 import { PromptComponent } from './components/prompt/prompt.component';
 import { AnalyticsComponent } from './components/analytics/analytics.component';
 import { AnalysisComponent } from './components/analysis/analysis.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { SigninComponent } from './components/signin/signin.component';
 
 const routes: Route[] = [
   { path: '', redirectTo: '/list', pathMatch: 'full' },
   { path: 'add', component: TodoFormComponent },
   { path: 'list', component: TodoListComponent },
   { path: 'analysis', component: AnalysisComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'signin', component: SigninComponent }
 ];
 
 @NgModule({
@@ -33,9 +41,14 @@ const routes: Route[] = [
     TodoFormComponent,
     TodoListComponent,
     PromptComponent,
-    AnalyticsComponent
+    AnalyticsComponent,
+    SignupComponent,
+    SigninComponent
   ],
   imports: [
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
