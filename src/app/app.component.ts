@@ -3,6 +3,8 @@ import { AppData } from './models/appData';
 import { DataKey } from './models/dataKey';
 import { Session } from './models/session';
 import { Todo } from './models/todo';
+import { AuthenticationService } from './services/authentication.service';
+
 const electron = (<any>window).require('electron');
 
 @Component({
@@ -16,7 +18,7 @@ export class AppComponent {
   appData: AppData;
   isReading: boolean;
 
-  constructor(){
+  constructor(public authenticationService: AuthenticationService){
     this.isReading = false;
     this.appData = new AppData();
     this.readAppData(DataKey.ALL_KEY);
