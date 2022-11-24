@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { TodoService } from '../../services/todo.service';
 import { ActivatedRoute } from '@angular/router';
-import { Todo } from 'src/app/models/todo';
+import { Todo } from '../../models/todo';
 
 @Component({
   selector: 'app-todo-list',
