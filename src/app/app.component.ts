@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { AppData } from './models/appData';
 import { DataKey } from './models/dataKey';
 import { Session } from './models/session';
@@ -18,11 +19,14 @@ export class AppComponent {
   appData: AppData;
   isReading: boolean;
 
-  constructor(public authenticationService: AuthenticationService){
+  constructor(public authenticationService: AuthenticationService, private db?: AngularFireDatabase){
     this.isReading = false;
     this.appData = new AppData();
     this.readAppData(DataKey.ALL_KEY);
+   
   }
+  
+
 
   ngOnInit()
   { }
@@ -35,6 +39,12 @@ export class AppComponent {
   saveTodoData(todoData: Todo[]) {
     this.appData.tasks = todoData;
     electron.ipcRenderer.send("save-data-todo", todoData);
+    const ref = this.db?.list("todos");
+    ref?.push(todoData).then((resp)=>{
+      console.log("#####################", resp);
+    }).catch((error)=>{
+      console.error(error);
+    })
   }
 
   showCpNotification(timeStr:string, quoteStr:string) {
