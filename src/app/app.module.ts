@@ -23,6 +23,10 @@ import { AnalyticsComponent } from './components/analytics/analytics.component';
 import { AnalysisComponent } from './components/analysis/analysis.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { SigninComponent } from './components/signin/signin.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 
 const routes: Route[] = [
   { path: '', redirectTo: '/signin', pathMatch: 'full' },
@@ -47,6 +51,7 @@ const routes: Route[] = [
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
     AngularFirestoreModule,
     AngularFireAuthModule,
     BrowserModule,
@@ -61,7 +66,10 @@ const routes: Route[] = [
     // MatDialog,
     // MatDialogRef,
     FormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideDatabase(() => getDatabase()),
+    provideFirestore(() => getFirestore())
   ],
   providers: [AppComponent],
   bootstrap: [AppComponent]
