@@ -25,7 +25,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { SigninComponent } from './components/signin/signin.component';
 
 const routes: Route[] = [
-  { path: '', redirectTo: '/list', pathMatch: 'full' },
+  { path: '', redirectTo: '/signin', pathMatch: 'full' },
   { path: 'add', component: TodoFormComponent },
   { path: 'list', component: TodoListComponent },
   { path: 'analysis', component: AnalysisComponent },
