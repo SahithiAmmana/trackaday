@@ -3,3 +3,7 @@ node_modules
 .angular
 .DS_Store
 dist
+# Firebase
+.firebase
+*-debug.log
+.runtimeconfig.json
