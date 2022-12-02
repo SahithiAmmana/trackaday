@@ -1,7 +1,7 @@
 <div class="displayTable">
     <div class="displayTableCell">
       <div class="authBlock">
-        <h3>Sign In</h3>
+        <h2>Sign In</h2>
         <div class="formGroup">
           <input type="email" class="formControl" placeholder="Email Address" #userEmail required>
         </div>
@@ -10,7 +10,7 @@
         </div>
         <!-- Calling SignIn Api from AuthService -->
         <div class="formGroup">
-          <input type="button" class="btn btnPrimary" value="Log in" (click)="authenticationService.SignIn(userEmail.value, userPassword.value)">
+          <input type="button" class="btn signIn-btn" value="Log in" (click)="authenticationService.SignIn(userEmail.value, userPassword.value)">
         </div>
         <div class="formGroup">
           <span class="or"><span class="orInner">Or</span></span>

@@ -1,7 +1,10 @@
 <div class="displayTable">
     <div class="displayTableCell">
         <div class="authBlock">
-            <h3>Sign Up</h3>
+            <h2>Sign Up</h2>
+            <div class="formGroup">
+                <input type="text" class="formControl" placeholder="Name" #userName required />
+            </div>
             <div class="formGroup">
                 <input type="email" class="formControl" placeholder="Email Address" #userEmail required />
             </div>
@@ -9,7 +12,7 @@
                 <input type="password" class="formControl" placeholder="Password" #userPassword required />
             </div>
             <div class="formGroup">
-                <input type="button" class="btn btnPrimary" value="Sign Up"
+                <input type="button" class="btn signUp-btn" value="Sign Up"
                     (click)="authenticationService.SignUp(userEmail.value, userPassword.value)" />
             </div>
             <div class="formGroup">

@@ -1,0 +1,23 @@
+.displayTable{
+    border: 1px solid lightslategray;
+    border-radius: 10px;
+    padding: 60px 10px;
+    text-align: center;
+}
+
+input[type=text], input[type=password], input[type=email] {
+    padding: 1px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+  
+input[type=text]:focus, input[type=password]:focus input[type=email]:focus{
+    background-color: #ddd;
+    outline: none;
+}
+
+.signUp-btn{
+    background-color: #ee6e73;
+}
