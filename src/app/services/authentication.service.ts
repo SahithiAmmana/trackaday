@@ -38,11 +38,11 @@ export class AuthenticationService {
       .createUserWithEmailAndPassword(email, password)
       .then(res => {
         this.SetUserData(res.user);
-        window.alert('You are successfully signed up!');
+        //window.alert('You are successfully signed up!');
         console.log('You are successfully signed up!', res);
       })
       .catch(error => {
-        window.alert(error.message);
+        //window.alert(error.message);
         console.log('Some error', error.message);
       });
   }
@@ -58,11 +58,11 @@ export class AuthenticationService {
             this.router.navigate(['list']);
           }
         })
-        window.alert('Logged in!');
+        //window.alert('Logged in!');
         console.log('Logged in!');
       })
       .catch(err => {
-        window.alert(err.message);
+        //window.alert(err.message);
         console.log('Something went wrong:', err.message);
       });
   }
@@ -90,6 +90,8 @@ export class AuthenticationService {
   get isLoggedIn(): boolean {
     return (JSON.parse(localStorage.getItem('user')!) !== null);
   }
+
+  
 
   get userID() : String {
     this.angularFireAuth.authState.subscribe(user => {
