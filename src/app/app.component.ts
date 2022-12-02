@@ -5,6 +5,8 @@ import { DataKey } from './models/dataKey';
 import { Session } from './models/session';
 import { Todo } from './models/todo';
 import { AuthenticationService } from './services/authentication.service';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
+import { equal } from 'assert';
 
 const electron = (<any>window).require('electron');
 
@@ -15,32 +17,44 @@ const electron = (<any>window).require('electron');
 })
 export class AppComponent {
   title = 'trackaday';
-
+  authUID: String;
   appData: AppData;
   isReading: boolean;
 
-  constructor(public authenticationService: AuthenticationService, private db?: AngularFireDatabase){
+  constructor(public authenticationService: AuthenticationService, public afs: AngularFirestore, private db: AngularFireDatabase){
     this.isReading = false;
     this.appData = new AppData();
     this.readAppData(DataKey.ALL_KEY);
-   
+    this.authUID ="";
   }
   
 
 
   ngOnInit()
-  { }
+  { 
+    if(this.authenticationService.isLoggedIn){
+      this.authUID=this.authenticationService.userID;
+      console.log(this.authUID);
+    }
+
+  }
 
   saveSessionData(sessionData: Session[]) {
     this.appData.session = sessionData;
     electron.ipcRenderer.send("save-data-session", sessionData);
+    const ref = this.db.list('Users/'+this.authUID+'/sessions')
+    ref.push(sessionData).then((resp)=>{
+      console.log("#####################", resp);
+    }).catch((error)=>{
+      console.error(error);
+    })
   }
 
   saveTodoData(todoData: Todo[]) {
     this.appData.tasks = todoData;
     electron.ipcRenderer.send("save-data-todo", todoData);
-    const ref = this.db?.list("todos");
-    ref?.push(todoData).then((resp)=>{
+    const ref = this.db.list('Users/'+this.authUID+'/todos');
+    ref.push(todoData).then((resp)=>{
       console.log("#####################", resp);
     }).catch((error)=>{
       console.error(error);

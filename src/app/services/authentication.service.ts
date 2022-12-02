@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/compat/auth";
 import * as firebase from 'firebase/auth';
-import { User } from '../services/user';
+import { User } from '../models/user';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
@@ -89,6 +89,18 @@ export class AuthenticationService {
   // Returns true when user is looged in and email is verified
   get isLoggedIn(): boolean {
     return (JSON.parse(localStorage.getItem('user')!) !== null);
+  }
+
+  get userID() : String {
+    this.angularFireAuth.authState.subscribe(user => {
+      if (user) {
+        return user.uid;
+      }
+      else {
+        return "";
+      }
+    })
+    return "";
   }
 
   /* Sign out */

@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { TodoService } from '../../services/todo.service';
 import { ToastrService } from 'ngx-toastr';
 import { Todo } from '../../models/todo';
+import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
   selector: 'app-todo',
@@ -11,17 +12,21 @@ import { Todo } from '../../models/todo';
 export class TodoComponent implements OnInit {
   // @Input() todoInput;
   @Input() todoInput ={} as Todo;
-
-  constructor(public todoService: TodoService, private toasterService: ToastrService) { }
-
+  private authuid:String="";
+  constructor(public todoService: TodoService, private toasterService: ToastrService, public authenticationService: AuthenticationService) { }
+  
   ngOnInit(): void {
+    
   }
 
   onChange(todo: Todo) {
     console.log("changed: "+JSON.stringify(todo));
     todo.isCompleted = !todo.isCompleted;
     this.todoService.completed(todo);
-    todo.isCompleted ? this.toasterService.success(`Todo succesfully completed`, 'completed') : '';
+    if(!this.authenticationService.isLoggedIn){
+      this.toasterService.success(JSON.stringify(this.authenticationService.userID));
+    }
+    todo.isCompleted ? this.toasterService.success(`Todo succesfully completed`, JSON.stringify(this.authenticationService.userID)) : '';
   }
 
   onCliCk(e: any) {
@@ -41,6 +46,7 @@ export class TodoComponent implements OnInit {
 
     if (todo.isCompleted){
       this.todoService.archiveTodo(todo);
+      this.toasterService.success(JSON.stringify(this.authenticationService.userID));
       this.toasterService.error(`"${todo.title.substring(0, 20)}..." Archived!`, 'Archived Successfuly');
     } else{
       this.todoService.deleteTodo(todo);
