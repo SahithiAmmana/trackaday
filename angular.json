@@ -32,7 +32,13 @@
               "src/styles.scss"
             ],
             "scripts": [],
-            "allowedCommonJsDependencies": ["path", "fs", "stream", "constants", "os"]
+            "allowedCommonJsDependencies": [
+              "path",
+              "fs",
+              "stream",
+              "constants",
+              "os"
+            ]
           },
           "configurations": {
             "production": {
@@ -102,6 +108,16 @@
               "src/styles.scss"
             ],
             "scripts": []
+          }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "trackaday:build:production",
+            "firebaseProject": "track-a-day",
+            "firebaseHostingSite": "track-a-day"
           }
         }
       }

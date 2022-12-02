@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "track-a-day": {
+      "hosting": {
+        "trackaday": [
+          "track-a-day"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "track-a-day"
+  }
+}
