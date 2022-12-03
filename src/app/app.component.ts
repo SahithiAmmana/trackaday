@@ -6,7 +6,6 @@ import { Session } from './models/session';
 import { Todo } from './models/todo';
 import { AuthenticationService } from './services/authentication.service';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
-import { equal } from 'assert';
 
 const electron = (<any>window).require('electron');
 
@@ -27,12 +26,8 @@ export class AppComponent {
     this.readAppData(DataKey.ALL_KEY);
     this.authUID ="";
   }
-  
 
-
-  ngOnInit()
-  { 
-  }
+  ngOnInit() {}
 
   saveSessionData(sessionData: Session[]) {
     this.authUID = this.authenticationService.userID;

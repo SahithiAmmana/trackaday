@@ -12,7 +12,6 @@ import { ToastrService } from 'ngx-toastr';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  // userData: Observable<firebase.User | null>;
   userData: any;
 
   constructor(
@@ -22,7 +21,7 @@ export class AuthenticationService {
     public toasterService: ToastrService,
     private db: AngularFireDatabase
   ) {
-    /* Saving user data in localstorage when 
+    /* Saving user data in localstorage when
       logged in and setting up null when logged out */
     this.angularFireAuth.authState.subscribe((user) => {
       if (user) {
@@ -84,10 +83,10 @@ export class AuthenticationService {
       });
   }
 
-  /* Setting up user data when sign in with username/password, 
-  sign up with username/password and sign in with social auth  
+  /* Setting up user data when sign in with username/password,
+  sign up with username/password and sign in with social auth
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
-  SetUserData(user: any, name: string) { 
+  SetUserData(user: any, name: string) {
     const userData: User = {
       uid: user.uid,
       email: user.email,
@@ -106,27 +105,14 @@ export class AuthenticationService {
     return (JSON.parse(localStorage.getItem('user')!) !== null);
   }
 
-  
-
   get userID() : String {
     console.log("came to get userid")
     const currentUser = getAuth().currentUser;
-
     if (currentUser) {
       return currentUser.uid;
     } else {
       return "";
     }
-    // return String(getAuth().currentUser?.uid);
-    this.angularFireAuth.authState.subscribe(user => {
-      if (user) {
-        return user.uid;
-      }
-      else {
-        return "";
-      }
-    })
-    return "";
   }
 
   /* Sign out */

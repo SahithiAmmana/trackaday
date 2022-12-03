@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AppComponent } from 'src/app/app.component';
 import { Session } from 'src/app/models/session';
@@ -19,7 +19,7 @@ enum Status {
 };
 
 const qoutes = [
-  "Good Work!!", 
+  "Good Work!!",
   "Keep it up!! You are doing great!",
   "Nothing is impossible!",
   "Stay Hydrated !!",
@@ -41,7 +41,7 @@ const TOTAL_SECONDS = 0;
   templateUrl: './start-stop-session.component.html',
   styleUrls: ['./start-stop-session.component.scss']
 })
-export class StartStopSessionComponent implements OnInit {
+export class StartStopSessionComponent implements OnInit, OnDestroy {
 
   message: string = '';
   strHours: string = '';
@@ -57,7 +57,7 @@ export class StartStopSessionComponent implements OnInit {
   sessionList: Session[] = [];
   session:Session | any;
 
-  constructor(public timerService:TimerService, public appComponent: AppComponent, private dialogRef: MatDialog){ }  
+  constructor(public timerService:TimerService, public appComponent: AppComponent, private dialogRef: MatDialog){ }
 
   ngOnInit() {
     this.message = timerMessages.start;
@@ -65,6 +65,10 @@ export class StartStopSessionComponent implements OnInit {
     this.timerService.waitForData().subscribe((sessionList:Session[])=>{
       this.sessionList = sessionList;
     })
+  }
+
+  ngOnDestroy(): void {
+    this.stopTimer();
   }
 
   countdown() {
@@ -154,7 +158,7 @@ export class StartStopSessionComponent implements OnInit {
   }
 
   openNotification()
-  { 
+  {
     // this.dialogRef.closeAll()
     // this.dialogRef.open(PromptComponent);
     this.appComponent.showCpNotification(this.getCheckpointStr(), this.getQoute());
@@ -173,7 +177,7 @@ export class StartStopSessionComponent implements OnInit {
         if(this.currentTimeMinutes == 0 && this.currentTimeSeconds == 0){
           this.openNotification();
         }
-      }      
+      }
     }
   }
 
