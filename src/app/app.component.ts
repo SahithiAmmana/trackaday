@@ -32,14 +32,10 @@ export class AppComponent {
 
   ngOnInit()
   { 
-    if(this.authenticationService.isLoggedIn){
-      this.authUID=this.authenticationService.userID;
-      console.log(this.authUID);
-    }
-
   }
 
   saveSessionData(sessionData: Session[]) {
+    this.authUID = this.authenticationService.userID;
     this.appData.session = sessionData;
     electron.ipcRenderer.send("save-data-session", sessionData);
     const ref = this.db.list('Users/'+this.authUID+'/sessions')
@@ -51,6 +47,7 @@ export class AppComponent {
   }
 
   saveTodoData(todoData: Todo[]) {
+    this.authUID = this.authenticationService.userID;
     this.appData.tasks = todoData;
     electron.ipcRenderer.send("save-data-todo", todoData);
     const ref = this.db.list('Users/'+this.authUID+'/todos');

@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/compat/auth";
-import * as firebase from 'firebase/auth';
+import { getAuth, updateCurrentUser } from "firebase/auth";
 import { User } from '../models/user';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +18,9 @@ export class AuthenticationService {
   constructor(
     public angularFireAuth: AngularFireAuth,
     public afs: AngularFirestore,
-    public router: Router
+    public router: Router,
+    public toasterService: ToastrService,
+    private db: AngularFireDatabase
   ) {
     /* Saving user data in localstorage when 
       logged in and setting up null when logged out */
@@ -37,12 +41,17 @@ export class AuthenticationService {
     this.angularFireAuth
       .createUserWithEmailAndPassword(email, password)
       .then(res => {
+        if(res!=null && res.user!=null){
+          console.log(res.user)
+        }
         this.SetUserData(res.user);
         //window.alert('You are successfully signed up!');
+        this.toasterService.success('You are successfully signed up!') ;
         console.log('You are successfully signed up!', res);
       })
       .catch(error => {
         //window.alert(error.message);
+        this.toasterService.error(error.message) ;
         console.log('Some error', error.message);
       });
   }
@@ -59,10 +68,12 @@ export class AuthenticationService {
           }
         })
         //window.alert('Logged in!');
+        this.toasterService.success('Logged in!') ;
         console.log('Logged in!');
       })
       .catch(err => {
         //window.alert(err.message);
+        this.toasterService.error(err.message) ;
         console.log('Something went wrong:', err.message);
       });
   }
@@ -70,20 +81,18 @@ export class AuthenticationService {
   /* Setting up user data when sign in with username/password, 
   sign up with username/password and sign in with social auth  
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
-  SetUserData(user: any) {
-    const userRef: AngularFirestoreDocument<any> = this.afs.doc(
-      `users/${user.uid}`
-    );
+  SetUserData(user: any) { 
     const userData: User = {
       uid: user.uid,
       email: user.email,
-      displayName: user.displayName,
-      photoURL: user.photoURL,
-      emailVerified: user.emailVerified,
+      displayName: user.displayName
     };
-    return userRef.set(userData, {
-      merge: true,
-    });
+    const ref = this.db.list('Users/'+user.uid+'/details');
+    ref.push(userData).then((resp)=>{
+      console.log("#####################", resp);
+    }).catch((error)=>{
+      console.error(error);
+    })
   }
 
   // Returns true when user is looged in and email is verified
@@ -94,6 +103,15 @@ export class AuthenticationService {
   
 
   get userID() : String {
+    console.log("came to get userid")
+    const currentUser = getAuth().currentUser;
+
+    if (currentUser) {
+      return currentUser.uid;
+    } else {
+      return "";
+    }
+    // return String(getAuth().currentUser?.uid);
     this.angularFireAuth.authState.subscribe(user => {
       if (user) {
         return user.uid;

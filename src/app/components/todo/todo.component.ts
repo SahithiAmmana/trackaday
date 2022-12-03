@@ -23,10 +23,7 @@ export class TodoComponent implements OnInit {
     console.log("changed: "+JSON.stringify(todo));
     todo.isCompleted = !todo.isCompleted;
     this.todoService.completed(todo);
-    if(!this.authenticationService.isLoggedIn){
-      this.toasterService.success(JSON.stringify(this.authenticationService.userID));
-    }
-    todo.isCompleted ? this.toasterService.success(`Todo succesfully completed`, JSON.stringify(this.authenticationService.userID)) : '';
+    todo.isCompleted ? this.toasterService.success(`Todo succesfully completed`, 'TODO') : '';
   }
 
   onCliCk(e: any) {
