@@ -17,12 +17,14 @@ export class SigninComponent implements OnInit {
       // authenticationService.handleAuthentication();
     }
 
-  email: string = '';
+    name: string = '';
+    email: string = '';
   password: string = '';
   signUp() {
-    this.authenticationService.SignUp(this.email, this.password);
+    this.authenticationService.SignUp(this.name, this.email, this.password);
     this.email = '';
     this.password = '';
+    this.name = '';
     }
     
   signIn() {

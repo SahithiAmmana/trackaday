@@ -39,6 +39,7 @@ export class AppComponent {
     this.appData.session = sessionData;
     electron.ipcRenderer.send("save-data-session", sessionData);
     const ref = this.db.list('Users/'+this.authUID+'/sessions')
+    ref.remove();
     ref.push(sessionData).then((resp)=>{
       console.log("#####################", resp);
     }).catch((error)=>{
@@ -51,6 +52,7 @@ export class AppComponent {
     this.appData.tasks = todoData;
     electron.ipcRenderer.send("save-data-todo", todoData);
     const ref = this.db.list('Users/'+this.authUID+'/todos');
+    ref.remove();
     ref.push(todoData).then((resp)=>{
       console.log("#####################", resp);
     }).catch((error)=>{

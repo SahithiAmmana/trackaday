@@ -37,17 +37,23 @@ export class AuthenticationService {
   }
 
   /* Sign up */
-  SignUp(email: string, password: string) {
+  SignUp(name: string, email: string, password: string) {
     this.angularFireAuth
       .createUserWithEmailAndPassword(email, password)
       .then(res => {
         if(res!=null && res.user!=null){
           console.log(res.user)
         }
-        this.SetUserData(res.user);
+        this.SetUserData(res.user, name);
+        // this.angularFireAuth.authState.subscribe(user => {
+        //   if (user) {
+        //     this.router.navigate(['list']);
+        //   }
+        // })
         //window.alert('You are successfully signed up!');
         this.toasterService.success('You are successfully signed up!') ;
         console.log('You are successfully signed up!', res);
+        this.SignOut();
       })
       .catch(error => {
         //window.alert(error.message);
@@ -61,7 +67,7 @@ export class AuthenticationService {
     this.angularFireAuth
       .signInWithEmailAndPassword(email, password)
       .then(res => {
-        this.SetUserData(res.user);
+        //this.SetUserData(res.user);
         this.angularFireAuth.authState.subscribe(user => {
           if (user) {
             this.router.navigate(['list']);
@@ -81,11 +87,11 @@ export class AuthenticationService {
   /* Setting up user data when sign in with username/password, 
   sign up with username/password and sign in with social auth  
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
-  SetUserData(user: any) { 
+  SetUserData(user: any, name: string) { 
     const userData: User = {
       uid: user.uid,
       email: user.email,
-      displayName: user.displayName
+      displayName: name
     };
     const ref = this.db.list('Users/'+user.uid+'/details');
     ref.push(userData).then((resp)=>{
