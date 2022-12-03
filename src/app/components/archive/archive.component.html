@@ -1,0 +1,19 @@
+<li class="list-group-item" [ngClass]="toggleClass()">
+    <div class="row" *ngIf="todoInput.isArchived">
+        <div class="col s10">
+            <div class="form-check d-inline">
+                <label>
+                    <!-- <input type="checkbox" class = "form-check-input" id="complete" (change)="onChange(todoInput)" [disabled]="todoInput.isCompleted"> -->
+                    <span class="form-check-label lead" style="padding-left: 35px;">{{todoInput.title}}</span>
+                </label>
+            </div>
+            <span style="padding-left: 35px;">{{todoInput.date | date}}</span>
+        </div>
+
+        <div class="col s2">
+            <a class="btn-floating waves-effect waves-light" (click)="redoTodo(todoInput)" *ngIf="todoInput.isCompleted">
+                <i class="material-icons green darken-2">redo</i>
+            </a>
+        </div>
+    </div>
+</li>

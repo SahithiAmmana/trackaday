@@ -18,6 +18,7 @@
         <a href="#" class="brand-logo">Track-a-day</a>
         <ul id="nav-mobile" class="right">
           <li><a class="nav-item nav-link" routerLink="/list" routerLinkActive="text-danger">Home</a></li>
+          <li><a class="nav-item nav-link" routerLink="/archive" routerLinkActive="text-danger">Archives</a></li>
           <li><a class="nav-item nav-link" routerLink="/analysis" routerLinkActive="text-danger">Analytics</a></li>
           <li *ngIf="authenticationService.isLoggedIn"><a class="nav-item nav-link" (click)="authenticationService.SignOut()" routerLinkActive="text-danger">Log Out</a></li>
         </ul>

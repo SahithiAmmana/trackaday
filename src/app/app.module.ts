@@ -27,6 +27,8 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { ArchiveComponent } from './components/archive/archive.component';
+import { ArchiveListComponent } from './components/archive-list/archive-list.component';
 
 const routes: Route[] = [
   { path: '', redirectTo: '/signin', pathMatch: 'full' },
@@ -34,7 +36,8 @@ const routes: Route[] = [
   { path: 'list', component: TodoListComponent },
   { path: 'analysis', component: AnalysisComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'signin', component: SigninComponent }
+  { path: 'signin', component: SigninComponent },
+  { path: 'archive', component: ArchiveListComponent}
 ];
 
 @NgModule({
@@ -47,7 +50,9 @@ const routes: Route[] = [
     PromptComponent,
     AnalyticsComponent,
     SignupComponent,
-    SigninComponent
+    SigninComponent,
+    ArchiveComponent,
+    ArchiveListComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
