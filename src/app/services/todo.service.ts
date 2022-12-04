@@ -61,6 +61,17 @@ export class TodoService {
     let index = this.todoList.indexOf(item);
     this.todoList[index].isCompleted = item.isCompleted;
     this.todoList[index].timeStamps[0].endTime = Date.now().toString()
+    if (index==0) {
+      if (this.session.length!=0 && this.session[this.session.length-1].endTime!=null) {
+        if (this.session[this.session.length-1].endTime <  this.todoList[index].timeStamps[0].endTime) {
+          this.todoList[index].timeStamps[0].startTime = this.session[this.session.length-1].startTime
+        } else {
+          this.todoList[index].timeStamps[0].startTime = this.todoList[index].timeStamps[0].endTime
+        }
+      } else {
+        this.todoList[index].timeStamps[0].startTime = this.todoList[index].timeStamps[0].endTime
+      }
+    }
     this.save();
   }
 
@@ -69,9 +80,13 @@ export class TodoService {
 
     let start = "";
     if (this.todoList.length==0) {
-      start = this.session[this.session.length-1].startTime;
+      if (this.session.length==0) {
+        start = Date.now().toString()
+      } else {
+        start = this.session[this.session.length-1].startTime;
+      }
     } else {
-      start = this.todoList[0].timeStamps[0].startTime
+      start = this.todoList[0].timeStamps[0].endTime
     }
     const timeStamp: TaskTimestamp = {
       startTime: start,

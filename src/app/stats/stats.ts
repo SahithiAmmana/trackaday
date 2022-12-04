@@ -163,7 +163,7 @@ export function getTaskTrackingStats(data: any) {
       if (startDate.getUTCDate() != endDate.getUTCDate()) {
         var totalTimeForDays = spiltBtwTwoDays(startDate, endDate);
         totalTimeForDay += totalTimeForDays[0];
-        addTaskToTaskTrackingStats(dateStartString, [task.taskId, totalTimeForDay, task.title], taskTrackingStats);
+        addTaskToTaskTrackingStats(dateStartString, [task.taskId, totalTimeForDay, task.title, task.isCompleted], taskTrackingStats);
         totalTimeForDay = totalTimeForDays[1];
         dateStartString = getDateString(endDate);
       }
@@ -171,7 +171,7 @@ export function getTaskTrackingStats(data: any) {
         totalTimeForDay += endDate.getTime() - startDate.getTime();
       }
     }
-    addTaskToTaskTrackingStats(dateStartString, [task.taskId, totalTimeForDay, task.title], taskTrackingStats);
+    addTaskToTaskTrackingStats(dateStartString, [task.taskId, totalTimeForDay, task.title, task.isCompleted], taskTrackingStats);
   }
   console.log('taskTrackingStats - ', taskTrackingStats);
 

@@ -99,12 +99,16 @@ export class AnalysisComponent implements OnInit {
     Object.keys(taskTrackingStatsList).map(day => {
       let taskUL = "";
       taskTrackingStatsList[day].forEach((val: any[]) => {
-        taskUL += "<li class=\"collection-item\">'" + val[2] + "' task time: " + Math.round(val[1] / (36 * (10 ** 5)) * 100) / 100 + " hrs</li>"
+        if (val[3]) {
+          taskUL += "<li class=\"collection-item\">'" + val[2] + "' task time: " + Math.round(val[1] / (36 * (10 ** 5)) * 100) / 100 + " hrs</li>"
+        }
       });
       taskUL += "</li>";
-      const k = "\"collapsible-body-" + day + "\"";
-      const func = "(()=>{if(document.getElementById(" + k + ").style.display==\"\") {document.getElementById(" + k + ").style.display=\"block\"} else {document.getElementById(" + k + ").style.display=\"\"}})()";
-      taskTrackingElement += "<li><div class='collapsible-header' onClick=''>" + day + "</div><div class='collapsible-body' id='collapsible-body-" + day + "'>" + taskUL + "</div></li>"
+      if (day != "NaN-NaN-NaN") {
+        const k = "\"collapsible-body-" + day + "\"";
+        const func = "(()=>{if(document.getElementById(" + k + ").style.display==\"\") {document.getElementById(" + k + ").style.display=\"block\"} else {document.getElementById(" + k + ").style.display=\"\"}})()";
+        taskTrackingElement += "<li><div class='collapsible-header' onClick=''>" + day + "</div><div class='collapsible-body' id='collapsible-body-" + day + "'>" + taskUL + "</div></li>"
+      }
     });
 
     const el = document.getElementById("taskTrackingStats");
