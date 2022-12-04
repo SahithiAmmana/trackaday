@@ -1,5 +1,7 @@
 import { Injectable, ApplicationRef } from '@angular/core';
 import { Todo } from '../models/todo';
+import { Session } from '../models/session';
+import { TaskTimestamp } from "../models/taskTimestamp";
 import { ToastrService } from 'ngx-toastr';
 import { AppComponent } from '../app.component';
 import { Observable, ReplaySubject } from 'rxjs';
@@ -12,6 +14,7 @@ import { Observable, ReplaySubject } from 'rxjs';
 export class TodoService {
   fav = [];
   todoList: Todo[] = [];
+  session: Session[] = [] ;
   appComponent: AppComponent;
   appRef: ApplicationRef;
 
@@ -28,6 +31,7 @@ export class TodoService {
       await this.delay(10);
     }
     this.todoList = this.appComponent.appData.tasks;
+    this.session = this.appComponent.appData.session;
     this.todoReplay.next(this.todoList);
     console.log("Updated appData: "+this.todoList[0]);
     this.appRef.tick();
@@ -56,11 +60,24 @@ export class TodoService {
   completed(item:Todo) {
     let index = this.todoList.indexOf(item);
     this.todoList[index].isCompleted = item.isCompleted;
+    this.todoList[index].timeStamps[0].endTime = Date.now().toString()
     this.save();
   }
 
   addTodo(title:any) {
-    let taskId = this.todoList.length + 2;
+    let taskId = this.todoList.length + 1;
+
+    let start = "";
+    if (this.todoList.length==0) {
+      start = this.session[this.session.length-1].startTime;
+    } else {
+      start = this.todoList[0].timeStamps[0].startTime
+    }
+    const timeStamp: TaskTimestamp = {
+      startTime: start,
+      endTime: "",
+      sessionId: this.session[this.session.length-1].sessionId
+    } ;
 
     const item: Todo = {
       taskId: taskId,
@@ -69,7 +86,8 @@ export class TodoService {
       isPinned: false,
       date: new Date(),
       title: title,
-      isArchived: false
+      isArchived: false,
+      timeStamps: [timeStamp]
     }
     this.todoList.unshift(item);
     this.save();

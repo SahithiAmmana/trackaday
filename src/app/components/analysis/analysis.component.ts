@@ -34,7 +34,7 @@ export class AnalysisComponent implements OnInit {
 
       electron.ipcRenderer.once('read-data-reply', (event: any, result: any) => {
         console.log("Data read by analysis: "+result);
-        
+
         // resolve(result);
         // this.readCallback(key, result);
         // console.log(result);
@@ -99,12 +99,12 @@ export class AnalysisComponent implements OnInit {
     Object.keys(taskTrackingStatsList).map(day => {
       let taskUL = "";
       taskTrackingStatsList[day].forEach((val: any[]) => {
-        taskUL += "<li class=\"collection-item\">Todo: " + val[0] + " Time: " + Math.round(val[1] / (36 * (10 ** 5)) * 100) / 100 + " hrs</li>"
+        taskUL += "<li class=\"collection-item\">'" + val[2] + "' task time: " + Math.round(val[1] / (36 * (10 ** 5)) * 100) / 100 + " hrs</li>"
       });
       taskUL += "</li>";
       const k = "\"collapsible-body-" + day + "\"";
       const func = "(()=>{if(document.getElementById(" + k + ").style.display==\"\") {document.getElementById(" + k + ").style.display=\"block\"} else {document.getElementById(" + k + ").style.display=\"\"}})()";
-      taskTrackingElement += "<li><div class='collapsible-header' onClick='" + func + "'>" + day + "</div><div class='collapsible-body' id='collapsible-body-" + day + "'>" + taskUL + "</div></li>"
+      taskTrackingElement += "<li><div class='collapsible-header' onClick=''>" + day + "</div><div class='collapsible-body' id='collapsible-body-" + day + "'>" + taskUL + "</div></li>"
     });
 
     const el = document.getElementById("taskTrackingStats");

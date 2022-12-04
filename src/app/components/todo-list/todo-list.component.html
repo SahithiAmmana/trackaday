@@ -6,20 +6,22 @@
 <div class="card" *ngIf="viewList">
     <div class="card-content">
         <span class="card-title">ToDo List</span>
-        <ul class="list-group" *ngFor="let todo of todoService.todoList">
-            <li class="list-group-item" [ngClass]="toggleClass()">
-                <div class="row" *ngIf="!todo.isArchived && todo.isPinned">
-                    <app-todo [todoInput]="todo"></app-todo>
-                </div>
-            </li>
-        </ul>
-        <ul class="list-group" *ngFor="let todo of todoService.todoList">
-            <li class="list-group-item" [ngClass]="toggleClass()">
-                <div class="row" *ngIf="!todo.isArchived && !todo.isPinned">
-                    <app-todo [todoInput]="todo"></app-todo>
-                </div>
-            </li>
-        </ul>
+        <div class="list-content">
+            <ul class="list-group" *ngFor="let todo of todoService.todoList">
+                <li class="list-group-item" [ngClass]="toggleClass()">
+                    <div class="row" *ngIf="!todo.isArchived && todo.isPinned">
+                        <app-todo [todoInput]="todo"></app-todo>
+                    </div>
+                </li>
+            </ul>
+            <ul class="list-group" *ngFor="let todo of todoService.todoList">
+                <li class="list-group-item" [ngClass]="toggleClass()">
+                    <div class="row" *ngIf="!todo.isArchived && !todo.isPinned">
+                        <app-todo [todoInput]="todo"></app-todo>
+                    </div>
+                </li>
+            </ul>
+        </div>
         <p class="center-align">
             <a class="btn-floating center waves-effect waves-light" routerLink="/add" routerLinkActive="text-danger"><i class="material-icons">add</i></a>
         </p>
