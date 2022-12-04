@@ -45,8 +45,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "1mb",
-                  "maximumError": "2mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "3mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -113,6 +113,7 @@
         "deploy": {
           "builder": "@angular/fire:deploy",
           "options": {
+            "codeCoverage": true,
             "prerender": false,
             "ssr": false,
             "browserTarget": "trackaday:build:production",
