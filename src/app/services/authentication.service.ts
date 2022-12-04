@@ -66,6 +66,11 @@ export class AuthenticationService {
     this.angularFireAuth
       .signInWithEmailAndPassword(email, password)
       .then(res => {
+
+   
+        this.toasterService.success('Logged in!') ;
+        console.log('Logged in!');
+
         //this.SetUserData(res.user);
         this.angularFireAuth.authState.subscribe(user => {
           if (user) {
@@ -78,6 +83,12 @@ export class AuthenticationService {
       })
       .catch(err => {
         //window.alert(err.message);
+        if(email.length==0 && password.length==0)
+        {
+          this.toasterService.error('Please Enter both Email & Password') ;
+          console.log('no credentials entered');
+          return
+        }
         this.toasterService.error(err.message) ;
         console.log('Something went wrong:', err.message);
       });
