@@ -7,6 +7,7 @@
 
 input[type=password], input[type=email] {
     padding: 1px;
+    border-radius: 7px;
     margin: 5px 0 22px 0;
     display: inline-block;
     border: none;
@@ -15,7 +16,9 @@ input[type=password], input[type=email] {
   
 input[type=password]:focus input[type=email]:focus{
     background-color: #ddd;
-    outline: none;
+    outline: none !important;
+    border: 10px #ee6e73;
+    box-shadow: 0 0 10px #719ECE;
 }
 
 .signIn-btn{
