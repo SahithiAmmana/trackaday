@@ -1,6 +1,4 @@
-<li class="list-group-item" [ngClass]="toggleClass()">
-    <div class="row" *ngIf="todoInput.isArchived">
-        <div class="col s10">
+        <div class="col s9">
             <div class="form-check d-inline">
                 <label>
                     <!-- <input type="checkbox" class = "form-check-input" id="complete" (change)="onChange(todoInput)" [disabled]="todoInput.isCompleted"> -->
@@ -9,11 +7,18 @@
             </div>
             <span style="padding-left: 35px;">{{todoInput.date | date}}</span>
         </div>
-
-        <div class="col s2">
+        <div class="col s1">
+            <a class="btn-floating waves-effect waves-light" (click)="isFavorite(todoInput)" style="background-color: white">
+                <i class="material-icons" [style.color]="!todoInput.isFavorite ? 'grey': 'red'">favorite</i>
+            </a>
+        </div>
+        <div class="col s1">
             <a class="btn-floating waves-effect waves-light" (click)="redoTodo(todoInput)" *ngIf="todoInput.isCompleted">
                 <i class="material-icons green darken-2">redo</i>
             </a>
         </div>
-    </div>
-</li>
+        <div class="col s1">
+            <a class="btn-floating waves-effect waves-light" (click)="deleteTodo(todoInput)">
+                <i class="material-icons red darken-2" >delete</i>
+            </a>
+        </div>

@@ -31,4 +31,20 @@ export class ArchiveComponent implements OnInit {
     this.toasterService.success(`"${todo.title.substring(0, 20)}..." added to todo Successfully`);
   }
 
+  deleteTodo(todo: Todo) {
+    console.log(todo)
+    this.todoService.deleteTodo(todo);
+    this.toasterService.error(`"${todo.title.substring(0, 20)}..." Deleted!`, 'Deleted Successfuly');
+  }
+
+  isFavorite(todo: Todo) {
+    this.todoService.updateFav(todo);
+    if (this.todoInput.isFavorite) {
+      this.toasterService.success(`"${todo.title.substring(0, 20)}..." Added to Favorite`);
+    }
+    else {
+      this.toasterService.success(`"${todo.title.substring(0, 20)}..." Removed from Favorite`);
+    }
+  }
+
 }

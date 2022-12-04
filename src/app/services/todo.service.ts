@@ -78,10 +78,9 @@ export class TodoService {
     this.appComponent.saveTodoData(this.todoList);
   }
 
-  updateFav(){
-    // if(localStorage.getItem('favorite'))
-    // {
-    // this.fav = JSON.parse(localStorage.getItem('favorite'));
-    // }
+  updateFav(item: Todo){
+    let index = this.todoList.indexOf(item);
+    this.todoList[index].isFavorite = !this.todoList[index].isFavorite ;
+    this.save();
   }
 }

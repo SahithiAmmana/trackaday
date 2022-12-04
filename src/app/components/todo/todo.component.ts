@@ -50,25 +50,14 @@ export class TodoComponent implements OnInit {
       this.toasterService.error(`"${todo.title.substring(0, 20)}..." Deleted!`, 'Deleted Successfuly');
     }
   }
-  isFavorite() {
-    // this.todoInput.isFavorite = !this.todoInput.isFavorite;
-    // if (this.todoInput.isFavorite) {
-
-    //   this.toasterService.success('Todo Added to Favorite');
-
-    //   this.todoService.fav.unshift(this.todoInput);
-
-    //   localStorage.settodo("favorite", JSON.stringify(this.todoService.fav));
-
-    // }
-    // else {
-    //   this.toasterService.error('Todo Removed from Favorite');
-    //   let index = this.todoService.todoList.indexOf(this.todo);
-    //   this.todoService.fav.splice(index, 1);
-
-    //   localStorage.settodo("favorite", JSON.stringify(this.todoService.fav));
-
-    // }
+  isFavorite(todo: Todo) {
+    this.todoService.updateFav(todo);
+    if (this.todoInput.isFavorite) {
+      this.toasterService.success(`"${todo.title.substring(0, 20)}..." Added to Favorite`);
+    }
+    else {
+      this.toasterService.success(`"${todo.title.substring(0, 20)}..." Removed from Favorite`);
+    }
   }
 
 }

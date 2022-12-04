@@ -1,10 +1,23 @@
 <div class="card" *ngIf="viewList">
+    <h2 class="title">Archive</h2>
     <div class="card-content">
-        <span class="card-title">Archive List</span>
+        <span class="card-title">Favorites</span>
         <ul class="list-group" *ngFor="let todo of todoService.todoList">
-
-            <app-archive [todoInput]="todo"></app-archive>
-
+            <li class="list-group-item"  [ngClass]="toggleClass()">
+                <div class="row"  *ngIf="todo.isArchived && todo.isFavorite">
+                    <app-archive [todoInput]="todo"></app-archive>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="card-content">
+        <span class="card-title">Others</span>
+        <ul class="list-group" *ngFor="let todo of todoService.todoList">
+            <li class="list-group-item"  [ngClass]="toggleClass()">
+                <div class="row"  *ngIf="todo.isArchived && !todo.isFavorite">
+                    <app-archive [todoInput]="todo"></app-archive>
+                </div>
+            </li>
         </ul>
     </div>
 </div>

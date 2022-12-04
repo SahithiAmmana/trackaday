@@ -22,7 +22,7 @@ export class TodoListComponent implements OnInit {
       }
       else {
         this.viewList = false;
-        this.todoService.updateFav();
+        // this.todoService.updateFav();
         console.log()
       }
     })
