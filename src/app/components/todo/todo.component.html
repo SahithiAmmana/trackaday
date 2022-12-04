@@ -1,6 +1,6 @@
 <li class="list-group-item" [ngClass]="toggleClass()">
     <div class="row" *ngIf="!todoInput.isArchived">
-        <div class="col s10">
+        <div class="col s9">
             <div class="form-check d-inline">
                 <label [class.strike]="todoInput.isCompleted">
                     <input type="checkbox" class = "form-check-input" id="complete" (change)="onChange(todoInput)" [disabled]="todoInput.isCompleted">
@@ -12,6 +12,11 @@
         <div class="col s1">
             <a class="btn-floating waves-effect waves-light" (click)="isFavorite(todoInput)" style="background-color: white">
                 <i class="material-icons" [style.color]="!todoInput.isFavorite ? 'grey': 'red'">favorite</i>
+            </a>
+        </div>
+        <div class="col s1">
+            <a class="btn-floating waves-effect waves-light" (click)="togglePin(todoInput)" style="background-color: white">
+                <i class="material-icons" [style.color]="!todoInput.isPinned ? 'grey': 'green'">push_pin</i>
             </a>
         </div>
         <div class="col s1">

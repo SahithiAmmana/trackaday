@@ -60,4 +60,14 @@ export class TodoComponent implements OnInit {
     }
   }
 
+  togglePin(todo: Todo) {
+    this.todoService.updatePin(todo);
+    if (this.todoInput.isPinned) {
+      this.toasterService.success(`"${todo.title.substring(0, 20)}..." is pinned`);
+    }
+    else {
+      this.toasterService.success(`"${todo.title.substring(0, 20)}..." is Unpinned`);
+    }
+  }
+
 }

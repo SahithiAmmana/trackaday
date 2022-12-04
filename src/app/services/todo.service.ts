@@ -66,6 +66,7 @@ export class TodoService {
       taskId: taskId,
       isCompleted: false,
       isFavorite: false,
+      isPinned: false,
       date: new Date(),
       title: title,
       isArchived: false
@@ -81,6 +82,12 @@ export class TodoService {
   updateFav(item: Todo){
     let index = this.todoList.indexOf(item);
     this.todoList[index].isFavorite = !this.todoList[index].isFavorite ;
+    this.save();
+  }
+
+  updatePin(item: Todo){
+    let index = this.todoList.indexOf(item);
+    this.todoList[index].isPinned = !this.todoList[index].isPinned ;
     this.save();
   }
 }

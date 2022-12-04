@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, Input } from '@angular/core';
 import { TodoService } from '../../services/todo.service';
 import { ActivatedRoute } from '@angular/router';
 import { Todo } from '../../models/todo';
@@ -11,6 +11,7 @@ import { Todo } from '../../models/todo';
 export class TodoListComponent implements OnInit {
 
   todoList: Todo[] = [];
+  @Input() todoInput ={} as Todo;
   constructor(public todoService: TodoService, public route: ActivatedRoute) { }
 
   viewList: boolean = true;
@@ -30,5 +31,12 @@ export class TodoListComponent implements OnInit {
     this.todoService.waitForData().subscribe((todoList: Todo[])=>{
       this.todoList = todoList;
     });
+  }
+
+  toggleClass() {
+    if (this.todoInput.isCompleted) {
+      return { 'list-group-todo-success': this.todoInput.isCompleted, 'border-primary': this.todoInput.isCompleted };
+    }
+    return null
   }
 }
