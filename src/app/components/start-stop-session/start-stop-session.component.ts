@@ -68,7 +68,7 @@ export class StartStopSessionComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.stopTimer();
+    // this.stopTimer();
   }
 
   countdown() {
