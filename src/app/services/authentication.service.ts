@@ -40,22 +40,12 @@ export class AuthenticationService {
     this.angularFireAuth
       .createUserWithEmailAndPassword(email, password)
       .then(res => {
-        if(res!=null && res.user!=null){
-          console.log(res.user)
-        }
         this.SetUserData(res.user, name);
-        // this.angularFireAuth.authState.subscribe(user => {
-        //   if (user) {
-        //     this.router.navigate(['list']);
-        //   }
-        // })
-        //window.alert('You are successfully signed up!');
         this.toasterService.success('You are successfully signed up!') ;
         console.log('You are successfully signed up!', res);
         this.SignOut();
       })
       .catch(error => {
-        //window.alert(error.message);
         this.toasterService.error(error.message) ;
         console.log('Some error', error.message);
       });
@@ -66,23 +56,15 @@ export class AuthenticationService {
     this.angularFireAuth
       .signInWithEmailAndPassword(email, password)
       .then(res => {
-
-   
         this.toasterService.success('Logged in!') ;
         console.log('Logged in!');
-
-        //this.SetUserData(res.user);
         this.angularFireAuth.authState.subscribe(user => {
           if (user) {
             this.router.navigate(['list']);
           }
         })
-        //window.alert('Logged in!');
-        this.toasterService.success('Logged in!') ;
-        console.log('Logged in!');
       })
       .catch(err => {
-        //window.alert(err.message);
         if(email.length==0 && password.length==0)
         {
           this.toasterService.error('Please Enter both Email & Password') ;
