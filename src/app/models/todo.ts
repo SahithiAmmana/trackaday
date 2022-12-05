@@ -8,6 +8,6 @@ export interface Todo {
     isFavorite: boolean;
     isArchived: boolean;
     isPinned: boolean;
-    date?: Date;
+    date?: string;
     // date?: Date; make it optional
 }

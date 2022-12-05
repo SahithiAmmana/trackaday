@@ -23,6 +23,7 @@ appdata.tasks = [
       isCompleted: true,
       isFavorite: false,
       isArchived: false,
+      isPinned: false,
       },
       {
         taskId: 2,
@@ -37,6 +38,7 @@ appdata.tasks = [
         isCompleted: true,
         isFavorite: false,
         isArchived: false,
+        isPinned: false
       },
       {
         taskId: 3,
@@ -56,6 +58,7 @@ appdata.tasks = [
         isCompleted: true,
         isFavorite: false,
         isArchived: false,
+        isPinned: false
       }
     ]
 appdata.session = [

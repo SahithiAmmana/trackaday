@@ -101,7 +101,7 @@ export class TodoService {
       isCompleted: false,
       isFavorite: false,
       isPinned: false,
-      date: new Date(),
+      date: new Date().toISOString(),
       title: title,
       isArchived: false,
       timeStamps: [timeStamp]
