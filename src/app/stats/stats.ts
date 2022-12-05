@@ -1,4 +1,5 @@
 import { AppData } from "../models/appData";
+import { Break } from "../models/break";
 
 // Function to initialise the averageHourlyStats array. That is initialise all the average hour values to zero.
 function initialise_average_hourly_stats(averageHourlyStats: any) {
@@ -107,7 +108,10 @@ export function getTimeTrackingStats(data: AppData) {
 
     var startDate = new Date(parseInt(session.startTime));
     var endDate = new Date(parseInt(session.endTime));
-    var breakTime = session.breakTime;
+    var breakTime: Break[] = [];
+    if (session.breakTime != null) {
+      breakTime = session.breakTime
+    }
     var dateStartString = getDateString(startDate);
     daysSoFar[0] += 1;
     if (startDate.getUTCDate() != endDate.getUTCDate()) {
