@@ -1,13 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TodoFormComponent } from './todo-form.component';
-
 import { ToastrModule } from 'ngx-toastr';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from 'src/app/app.component';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { AngularFireModule } from '@angular/fire/compat';
-import { environment } from 'src/environments/environment';
 
 describe('TodoFormComponent', () => {
   let component: TodoFormComponent;
