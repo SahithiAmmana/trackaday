@@ -2,7 +2,8 @@ import { OnInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { Chart, Point, registerables } from "chart.js";
 import { DataKey } from 'src/app/models/dataKey';
 import { getTaskTrackingStats, getTimeTrackingStats } from 'src/app/stats/stats';
-const electron = (<any>window).require('electron');
+import { AppComponent } from 'src/app/app.component';
+// const electron = (<any>window).require('electron');
 
 Chart.register(...registerables);
 
@@ -18,7 +19,7 @@ export class AnalysisComponent implements OnInit {
   private result: any;
 
 
-  constructor() {
+  constructor(public appComponent: AppComponent) {
     this.data = [{ x: 1, y: 5 }, { x: 2, y: 10 }, { x: 3, y: 6 }, { x: 4, y: 2 }, { x: 4.1, y: 6 }];
   }
 
@@ -30,22 +31,22 @@ export class AnalysisComponent implements OnInit {
     // this.isReading = true;
     console.log("trying to read data")
     return new Promise(resolve => {
-      electron.ipcRenderer.send('read-data', key)
+      // electron.ipcRenderer.send('read-data', key)
 
-      electron.ipcRenderer.once('read-data-reply', (event: any, result: any) => {
-        console.log("Data read by analysis: "+result);
+      // electron.ipcRenderer.once('read-data-reply', (event: any, result: any) => {
+      //   console.log("Data read by analysis: "+result);
 
         // resolve(result);
         // this.readCallback(key, result);
         // console.log(result);
         // eval("document.getElementById('abcd').innerHTML = JSON.stringify(" + JSON.stringify(result) + ");");
-
-        this.result = result;
+        this.result = this.appComponent.appData;
+        //this.result = result;
 
         this.createTimeTrackigStatsChart(); // branch1
         this.createTaskTrackingList();
         this.createHourlyTrackingList();
-      })
+      // })
     })
   }
 
