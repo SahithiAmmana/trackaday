@@ -7,8 +7,6 @@ import { Todo } from './models/todo';
 import { AuthenticationService } from './services/authentication.service';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 
-//const electron = (<any>window).require('electron');
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -34,7 +32,6 @@ export class AppComponent {
   saveSessionData(sessionData: Session[]) {
     this.authUID = this.authenticationService.userID;
     this.appData.session = sessionData;
-    //electron.ipcRenderer.send("save-data-session", sessionData);
     const ref = this.db.list('Users/'+this.authUID+'/sessions')
     ref.remove();
     ref.push(sessionData).then((resp)=>{
@@ -47,7 +44,6 @@ export class AppComponent {
   saveTodoData(todoData: Todo[]) {
     this.authUID = this.authenticationService.userID;
     this.appData.tasks = todoData;
-    //electron.ipcRenderer.send("save-data-todo", todoData);
     const ref = this.db.list('Users/'+this.authUID+'/todos');
     ref.remove();
     ref.push(todoData).then((resp)=>{
@@ -63,7 +59,6 @@ export class AppComponent {
 
   readAppData(key: DataKey) {
     this.isReading = true;
-    console.log("trying to read data")
     return new Promise(resolve=> {
       if(key == DataKey.SESSION_KEY){
         this.getSessionList();
@@ -78,7 +73,6 @@ export class AppComponent {
                 var allData = new AppData();
                 allData.tasks = this.todoList;
                 allData.session = this.sessionList;
-                console.log('alldata', allData);
                 resolve(allData);
                 this.readCallback(key, allData);
               })
@@ -94,11 +88,8 @@ export class AppComponent {
         var authUID=JSON.parse(localStorage.getItem('user')!).uid;
         const todoRef = this.db.list('Users/'+authUID+'/todos');
           todoRef.valueChanges().subscribe((data)=>{
-            console.log('reading daat fromfirebase', data);
-            console.log('todolist', this.todoList);
             if(data.length!=0){
               this.todoList = data[0] as Todo[];
-              console.log('todolist', this.todoList);
             }
             else{
               this.todoList= [];
@@ -119,10 +110,8 @@ export class AppComponent {
         var authUID=JSON.parse(localStorage.getItem('user')!).uid;
         const sessionRef = this.db.list('Users/'+authUID+'/sessions');
         sessionRef.valueChanges().subscribe((data)=>{
-          console.log('reading daat fromfirebase', data);
           if(data.length!=0){
             this.sessionList = data[0] as Session[]; 
-            console.log('sessionlist', this.sessionList);
           }
           else{
             this.sessionList=[];
@@ -138,7 +127,6 @@ export class AppComponent {
   }
 
   readCallback(key: DataKey, data: any){
-    console.log("key:" + key + "\ndata:" + JSON.stringify(data));
     if(key == DataKey.SESSION_KEY){
       this.appData.session = data;
     } else if (key == DataKey.TODO_KEY){
