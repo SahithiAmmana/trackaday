@@ -68,6 +68,7 @@ export class TodoService {
         } else {
           this.todoList[index].timeStamps[0].startTime = this.todoList[index].timeStamps[0].endTime
         }
+        this.todoList[index].timeStamps[0].sessionId = this.session[this.session.length-1].sessionId
       } else {
         this.todoList[index].timeStamps[0].startTime = this.todoList[index].timeStamps[0].endTime
       }
@@ -77,13 +78,14 @@ export class TodoService {
 
   addTodo(title:any) {
     let taskId = this.todoList.length + 1;
-
+    let sessId = "";
     let start = "";
     if (this.todoList.length==0) {
       if (this.session.length==0) {
         start = Date.now().toString()
       } else {
         start = this.session[this.session.length-1].startTime;
+        sessId = this.session[this.session.length-1].sessionId;
       }
     } else {
       start = this.todoList[0].timeStamps[0].endTime
@@ -91,7 +93,7 @@ export class TodoService {
     const timeStamp: TaskTimestamp = {
       startTime: start,
       endTime: "",
-      sessionId: this.session[this.session.length-1].sessionId
+      sessionId: sessId
     } ;
 
     const item: Todo = {

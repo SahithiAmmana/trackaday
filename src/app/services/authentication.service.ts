@@ -130,9 +130,10 @@ export class AuthenticationService {
   SignOut() {
     this.angularFireAuth
       .signOut()
-      .then(() => {
+      .then(() => { 
         localStorage.removeItem('user');
         this.router.navigate(['signin']);
+        window.open('index.html','_top')
       });
   }
 }
