@@ -3,6 +3,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TodoListComponent } from './todo-list.component';
 
 import { ToastrModule } from 'ngx-toastr';
+import { TodoService } from 'src/app/services/todo.service';
+import { AppComponent } from 'src/app/app.component';
 
 
 describe('TodoListComponent', () => {
@@ -12,6 +14,7 @@ describe('TodoListComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ TodoListComponent ],
+      providers: [AppComponent],
       imports: [
         ToastrModule.forRoot() // added this works for me
     ]
