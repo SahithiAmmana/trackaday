@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AppComponent } from 'src/app/app.component';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 import { SignupComponent } from './signup.component';
 
@@ -8,6 +10,7 @@ describe('SignupComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      providers: [AppComponent],
       declarations: [ SignupComponent ]
     })
     .compileComponents();
@@ -19,5 +22,6 @@ describe('SignupComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+    // component.ngOnInit()
   });
 });

@@ -1,4 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AngularFireModule } from '@angular/fire/compat';
+import { RouterTestingModule } from '@angular/router/testing';
+import { ToastrService } from 'ngx-toastr';
+import { AppComponent } from 'src/app/app.component';
+import { environment } from 'src/environments/environment';
 
 import { ArchiveListComponent } from './archive-list.component';
 
@@ -8,7 +13,18 @@ describe('ArchiveListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ArchiveListComponent ]
+      imports: [
+        // AngularFireModule.initializeApp(environment.firebase),
+        RouterTestingModule
+      ],
+      declarations: [
+        // AppComponent,
+        ArchiveListComponent
+      ],
+      providers: [
+        { provide: AngularFireModule },
+        // { provide: ToastrService, useValue: ToastrService }
+      ]
     })
     .compileComponents();
 
