@@ -40,12 +40,14 @@ export class AnalysisComponent implements OnInit {
         // this.readCallback(key, result);
         // console.log(result);
         // eval("document.getElementById('abcd').innerHTML = JSON.stringify(" + JSON.stringify(result) + ");");
-        this.result = this.appComponent.appData;
-        //this.result = result;
-
-        this.createTimeTrackigStatsChart(); // branch1
-        this.createTaskTrackingList();
-        this.createHourlyTrackingList();
+        this.appComponent.readAppData(DataKey.ALL_KEY).then(num => {
+          this.result = this.appComponent.appData;
+          //this.result = result;
+  
+          this.createTimeTrackigStatsChart(); // branch1
+          this.createTaskTrackingList();
+          this.createHourlyTrackingList();
+        })
       // })
     })
   }
