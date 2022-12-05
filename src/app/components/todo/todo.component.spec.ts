@@ -59,6 +59,7 @@ describe('TodoComponent', () => {
       isArchived: false,
       timeStamps: [timeStamp]
     }
+    component.todoService.todoList = [item];
     component.isFavorite(item);
     component.togglePin(item);
     component.deleteTodo(item);

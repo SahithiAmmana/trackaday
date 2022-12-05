@@ -3,7 +3,6 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { RouterTestingModule } from '@angular/router/testing';
 import { IndividualConfig, ToastrModule, ToastrService } from 'ngx-toastr';
 import { AppComponent } from 'src/app/app.component';
-import { TodoService } from 'src/app/services/todo.service';
 import { environment } from 'src/environments/environment';
 
 import { ArchiveComponent } from './archive.component';
@@ -22,7 +21,7 @@ describe('ArchiveComponent', () => {
     await TestBed.configureTestingModule({imports: [
         RouterTestingModule, AngularFireModule.initializeApp(environment.firebase),
     ],
-      providers: [AppComponent,{ provide: AngularFireModule },{ provide: ToastrService, useValue: toastrService },],
+      providers: [AppComponent,{ provide: AngularFireModule },{ provide: ToastrService, useValue: toastrService }],
       declarations: [ ArchiveComponent ]
     })
     .compileComponents();
