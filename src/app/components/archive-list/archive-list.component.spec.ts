@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AngularFireModule } from '@angular/fire/compat';
 import { RouterTestingModule } from '@angular/router/testing';
-import { ToastrService } from 'ngx-toastr';
+import { IndividualConfig, ToastrService } from 'ngx-toastr';
 import { AppComponent } from 'src/app/app.component';
 import { environment } from 'src/environments/environment';
 
@@ -12,18 +12,24 @@ describe('ArchiveListComponent', () => {
   let fixture: ComponentFixture<ArchiveListComponent>;
 
   beforeEach(async () => {
+
+    const toastrService = {
+      success: (message?: string, title?: string, override?: Partial<IndividualConfig>) => { },
+      error: (message?: string, title?: string, override?: Partial<IndividualConfig>) => { }
+    };
+
     await TestBed.configureTestingModule({
       imports: [
-        // AngularFireModule.initializeApp(environment.firebase),
+        AngularFireModule.initializeApp(environment.firebase),
         RouterTestingModule
       ],
       declarations: [
         // AppComponent,
         ArchiveListComponent
       ],
-      providers: [
+      providers: [AppComponent,
         { provide: AngularFireModule },
-        // { provide: ToastrService, useValue: ToastrService }
+        { provide: ToastrService, useValue: toastrService },
       ]
     })
     .compileComponents();
