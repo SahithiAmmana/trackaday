@@ -1,8 +1,10 @@
 import { TestBed } from '@angular/core/testing';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { environment } from 'src/environments/environment';
 import { AppComponent } from '../app.component';
+import { Session } from '../models/session';
 import { TimerService } from './timer.service';
 
 describe('TimerService', () => {
@@ -13,7 +15,7 @@ describe('TimerService', () => {
       imports: [
         AngularFireModule.initializeApp(environment.firebase),
       ],
-      providers: [AngularFireAuth, AppComponent],
+      providers: [AngularFireAuth, AppComponent, { provide: ToastrService, useValue: ToastrService }],
     });
     service = TestBed.inject(TimerService);
   });
@@ -24,7 +26,13 @@ describe('TimerService', () => {
     service.delay(10);
     service.readDataStore()
     service.save()
+    const session: Session = {
+        sessionId: "0",
+        taskIds: ["1","2"],
+        startTime: "123456",
+        endTime: "123488"
+    }
     console.log(service.sessionList)
-
-    });
+    service.saveSessionData(session)
   });
+});

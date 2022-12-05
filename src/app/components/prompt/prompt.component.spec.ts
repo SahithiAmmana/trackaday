@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatDialogModule } from '@angular/material/dialog';
+import { AppComponent } from 'src/app/app.component';
 
 import { PromptComponent } from './prompt.component';
 
@@ -8,6 +10,8 @@ describe('PromptComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [MatDialogModule],
+      providers: [AppComponent],
       declarations: [ PromptComponent ]
     })
     .compileComponents();
@@ -19,5 +23,9 @@ describe('PromptComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should close', () => {
+    component.closePrompt()
   });
 });
