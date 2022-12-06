@@ -38,7 +38,7 @@
   <li>Components</li>
   <li
   >
-  TodoFormComponent</li>
+  ArchiveListComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -52,6 +52,9 @@
             <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
         </li>
         <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
             <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
         </li>
 </ul>
@@ -61,7 +64,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/app/components/todo-form/todo-form.component.ts</code>
+    <code>src/app/components/archive-list/archive-list.component.ts</code>
 </p>
 
 
@@ -92,15 +95,19 @@
 
             <tr>
                 <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>app-todo-form</code></td>
+                <td class="col-md-9"><code>app-archive-list</code></td>
             </tr>
 
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./archive-list.component.scss</code></td>
+            </tr>
 
 
 
             <tr>
                 <td class="col-md-3">templateUrl</td>
-                <td class="col-md-9"><code>./todo-form.component.html</code></td>
+                <td class="col-md-9"><code>./archive-list.component.html</code></td>
             </tr>
 
 
@@ -127,11 +134,18 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#todo" >todo</a>
+                                    <span class="modifier">Public</span>
+                                <a href="#route" >route</a>
+                            </li>
+                            <li>
+                                <a href="#todoList" >todoList</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
                                 <a href="#todoService" >todoService</a>
+                            </li>
+                            <li>
+                                <a href="#viewList" >viewList</a>
                             </li>
                         </ul>
                     </td>
@@ -149,12 +163,26 @@
                                 <a href="#ngOnInit" >ngOnInit</a>
                             </li>
                             <li>
-                                <a href="#onSubmit" >onSubmit</a>
+                                <a href="#toggleClass" >toggleClass</a>
                             </li>
                         </ul>
                     </td>
                 </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#todoInput" >todoInput</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
 
 
@@ -169,12 +197,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(todoService: <a href="../injectables/TodoService.html" target="_self">TodoService</a>, _router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
+<code>constructor(todoService: <a href="../injectables/TodoService.html" target="_self">TodoService</a>, route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/components/todo-form/todo-form.component.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/components/archive-list/archive-list.component.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -204,10 +232,10 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>_router</td>
+                                                        <td>route</td>
                                                   
                                                         <td>
-                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                                        <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -224,7 +252,35 @@
         </table>
 </section>
 
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="todoInput"></a>
+                        <b>todoInput</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Todo.html" target="_self" >Todo</a></code>
 
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{} as Todo</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/components/archive-list/archive-list.component.ts:14</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
 
 
 
@@ -253,8 +309,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">src/app/components/todo-form/todo-form.component.ts:16</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="18"
+                            class="link-to-prism">src/app/components/archive-list/archive-list.component.ts:18</a></div>
                 </td>
             </tr>
 
@@ -274,24 +330,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="onSubmit"></a>
+                    <a name="toggleClass"></a>
                     <span class="name">
-                        <span ><b>onSubmit</b></span>
-                        <a href="#onSubmit"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>toggleClass</b></span>
+                        <a href="#toggleClass"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>onSubmit()</code>
+<code>toggleClass()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">src/app/components/todo-form/todo-form.component.ts:19</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">src/app/components/archive-list/archive-list.component.ts:34</a></div>
                 </td>
             </tr>
 
@@ -300,7 +356,7 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <b>Returns : </b>    <code>{ &#x27;list-group-todo-success&#x27;: any; &#x27;border-primary&#x27;: any; }</code>
 
                     </div>
                 </td>
@@ -317,27 +373,54 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="todo"></a>
+                    <a name="route"></a>
                     <span class="name">
-                        <span ><b>todo</b></span>
-                        <a href="#todo"><span class="icon ion-ios-link"></span></a>
+                            <span class="modifier">Public</span>
+                        <span ><b>route</b></span>
+                        <a href="#route"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                        <i>Type : </i>        <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/archive-list/archive-list.component.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="todoList"></a>
+                    <span class="name">
+                        <span ><b>todoList</b></span>
+                        <a href="#todoList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Todo.html" target="_self" >Todo[]</a></code>
 
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                        <i>Default value : </i><code>[]</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/components/todo-form/todo-form.component.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/components/archive-list/archive-list.component.ts:13</a></div>
                         </td>
                     </tr>
 
@@ -364,7 +447,38 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/components/todo-form/todo-form.component.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/archive-list/archive-list.component.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="viewList"></a>
+                    <span class="name">
+                        <span ><b>viewList</b></span>
+                        <a href="#viewList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/components/archive-list/archive-list.component.ts:17</a></div>
                         </td>
                     </tr>
 
@@ -377,48 +491,97 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, Input } from &#x27;@angular/core&#x27;;
 import { TodoService } from &#x27;../../services/todo.service&#x27;;
-import { Router } from &#x27;@angular/router&#x27;;
+import { ActivatedRoute } from &#x27;@angular/router&#x27;;
+import { Todo } from &#x27;../../models/todo&#x27;;
 
 @Component({
-  selector: &#x27;app-todo-form&#x27;,
-  templateUrl: &#x27;./todo-form.component.html&#x27;,
-  styles: []
+  selector: &#x27;app-archive-list&#x27;,
+  templateUrl: &#x27;./archive-list.component.html&#x27;,
+  styleUrls: [&#x27;./archive-list.component.scss&#x27;]
 })
-export class TodoFormComponent implements OnInit {
+export class ArchiveListComponent implements OnInit {
 
-  todo &#x3D; &#x27;&#x27;;
+  todoList: Todo[] &#x3D; [];
+  @Input() todoInput &#x3D;{} as Todo;
+  constructor(public todoService: TodoService, public route: ActivatedRoute) { }
 
-  constructor(public todoService: TodoService, private _router: Router) { }
-
+  viewList: boolean &#x3D; true;
   ngOnInit(): void {
+    this.route.url.subscribe(data &#x3D;&gt; {
+      if (data[0].path &#x3D;&#x3D; &#x27;archive&#x27;) {
+        this.viewList &#x3D; true;
+      }
+      else {
+        this.viewList &#x3D; false;
+        //this.todoService.updateFav();
+        console.log()
+      }
+    })
+
+    this.todoService.waitForData().subscribe((todoList: Todo[])&#x3D;&gt;{
+      this.todoList &#x3D; todoList;
+    });
+  }
+  toggleClass() {
+    if (this.todoInput.isCompleted) {
+      return { &#x27;list-group-todo-success&#x27;: this.todoInput.isCompleted, &#x27;border-primary&#x27;: this.todoInput.isCompleted };
+    }
+    return null
   }
 
-  onSubmit(){
-    this.todoService.addTodo(this.todo);
-    this.todo &#x3D; &#x27;&#x27;;
-    this._router.navigateByUrl(&#x27;/list&#x27;);
-  }
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;card&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;card&quot; *ngIf&#x3D;&quot;viewList&quot;&gt;
+    &lt;h2 class&#x3D;&quot;title&quot;&gt;Archive&lt;/h2&gt;
     &lt;div class&#x3D;&quot;card-content&quot;&gt;
-        &lt;span class&#x3D;&quot;card-title&quot;&gt;Add ToDo item&lt;/span&gt;
-        &lt;form #addTodo&#x3D;&quot;ngForm&quot; (submit)&#x3D;&quot;onSubmit()&quot;&gt;
-            &lt;div class&#x3D;&quot;form-group&quot;&gt;
-                &lt;input type&#x3D;&quot;text&quot; name&#x3D;&quot;todo&quot; class&#x3D;&quot;form-control&quot; placeholder&#x3D;&quot;Add Todo . . .&quot; [(ngModel)]&#x3D;&quot;todo&quot; required&gt;
-            &lt;/div&gt;
-            &lt;button class&#x3D;&quot;btn&quot; [disabled]&#x3D;&quot;addTodo.invalid&quot;&gt; ADD &lt;/button&gt;
-            &lt;button class&#x3D;&quot;btn&quot; style&#x3D;&quot;margin-left:8px&quot; routerLink&#x3D;&quot;/list&quot; routerLinkActive&#x3D;&quot;text-danger&quot;&gt; BACK &lt;/button&gt;
-        &lt;/form&gt;
+        &lt;span class&#x3D;&quot;card-title&quot;&gt;Favorites&lt;/span&gt;
+        &lt;ul class&#x3D;&quot;list-group&quot; *ngFor&#x3D;&quot;let todo of todoService.todoList&quot;&gt;
+            &lt;li class&#x3D;&quot;list-group-item&quot;  [ngClass]&#x3D;&quot;toggleClass()&quot;&gt;
+                &lt;div class&#x3D;&quot;row&quot;  *ngIf&#x3D;&quot;todo.isArchived &amp;&amp; todo.isFavorite&quot;&gt;
+                    &lt;app-archive [todoInput]&#x3D;&quot;todo&quot;&gt;&lt;/app-archive&gt;
+                &lt;/div&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;card-content&quot;&gt;
+        &lt;span class&#x3D;&quot;card-title&quot;&gt;Others&lt;/span&gt;
+        &lt;ul class&#x3D;&quot;list-group&quot; *ngFor&#x3D;&quot;let todo of todoService.todoList&quot;&gt;
+            &lt;li class&#x3D;&quot;list-group-item&quot;  [ngClass]&#x3D;&quot;toggleClass()&quot;&gt;
+                &lt;div class&#x3D;&quot;row&quot;  *ngIf&#x3D;&quot;todo.isArchived &amp;&amp; !todo.isFavorite&quot;&gt;
+                    &lt;app-archive [todoInput]&#x3D;&quot;todo&quot;&gt;&lt;/app-archive&gt;
+                &lt;/div&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;card&quot; *ngIf&#x3D;&quot;!viewList&quot;&gt;
+    &lt;div class&#x3D;&quot;card-content&quot;&gt;
+        &lt;span class&#x3D;&quot;card-title&quot;&gt;Archive List&lt;/span&gt;
+        &lt;ul class&#x3D;&quot;list-group&quot; *ngFor&#x3D;&quot;let todo of todoService.fav&quot;&gt;
+
+            &lt;app-archive [todoInput]&#x3D;&quot;todo&quot;&gt;&lt;/app-archive&gt;
+            
+        &lt;/ul&gt;
     &lt;/div&gt;
 &lt;/div&gt;</code></pre>
     </div>
 
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./archive-list.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.title{
+    font-size: 28px;
+    padding-left: 24px;
+    padding-top: 10px;
+}</code></pre>
+    </div>
 
     <div class="tab-pane fade " id="c-tree">
         <div id="tree-container"></div>
@@ -445,10 +608,10 @@ export class TodoFormComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="card">    <div class="card-content">        <span class="card-title">Add ToDo item</span>        <form #addTodo="ngForm" (submit)="onSubmit()">            <div class="form-group">                <input type="text" name="todo" class="form-control" placeholder="Add Todo . . ." [(ngModel)]="todo" required>            </div>            <button class="btn" [disabled]="addTodo.invalid"> ADD </button>            <button class="btn" style="margin-left:8px" routerLink="/list" routerLinkActive="text-danger"> BACK </button>        </form>    </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="card" *ngIf="viewList">    <h2 class="title">Archive</h2>    <div class="card-content">        <span class="card-title">Favorites</span>        <ul class="list-group" *ngFor="let todo of todoService.todoList">            <li class="list-group-item"  [ngClass]="toggleClass()">                <div class="row"  *ngIf="todo.isArchived && todo.isFavorite">                    <app-archive [todoInput]="todo"></app-archive>                </div>            </li>        </ul>    </div>    <div class="card-content">        <span class="card-title">Others</span>        <ul class="list-group" *ngFor="let todo of todoService.todoList">            <li class="list-group-item"  [ngClass]="toggleClass()">                <div class="row"  *ngIf="todo.isArchived && !todo.isFavorite">                    <app-archive [todoInput]="todo"></app-archive>                </div>            </li>        </ul>    </div></div><div class="card" *ngIf="!viewList">    <div class="card-content">        <span class="card-title">Archive List</span>        <ul class="list-group" *ngFor="let todo of todoService.fav">            <app-archive [todoInput]="todo"></app-archive>                    </ul>    </div></div></div>'
     var COMPONENTS = [{'name': 'AnalysisComponent', 'selector': 'app-analysis'},{'name': 'AnalyticsComponent', 'selector': 'app-analytics'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ArchiveComponent', 'selector': 'app-archive'},{'name': 'ArchiveListComponent', 'selector': 'app-archive-list'},{'name': 'PromptComponent', 'selector': 'app-prompt'},{'name': 'SigninComponent', 'selector': 'app-signin'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'StartStopSessionComponent', 'selector': 'app-start-stop-session'},{'name': 'TodoComponent', 'selector': 'app-todo'},{'name': 'TodoFormComponent', 'selector': 'app-todo-form'},{'name': 'TodoListComponent', 'selector': 'app-todo-list'}];
     var DIRECTIVES = [];
-    var ACTUAL_COMPONENT = {'name': 'TodoFormComponent'};
+    var ACTUAL_COMPONENT = {'name': 'ArchiveListComponent'};
 </script>
 <script src="../js/tree.js"></script>
 
@@ -494,7 +657,7 @@ export class TodoFormComponent implements OnInit {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
-            var COMPODOC_CURRENT_PAGE_URL = 'TodoFormComponent.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'ArchiveListComponent.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
