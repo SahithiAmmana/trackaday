@@ -38,7 +38,7 @@ describe('SigninComponent', () => {
     component.email="saipavanyalla@gmail.com"
     component.password="saipavan99."
     component.name="Sai Pavan"
-    component.signUp()
+    //component.signUp()
     component.signIn();
     expect(component).toBeTruthy();
   });
