@@ -61,10 +61,7 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
-                            <a href="#electron" title="src/app/app.component.ts" ><b>electron</b>&nbsp;&nbsp;&nbsp;(src/.../app.component.ts)</a>
-                        </li>
-                        <li>
-                            <a href="#electron" title="src/app/components/analysis/analysis.component.ts" ><b>electron</b>&nbsp;&nbsp;&nbsp;(src/.../analysis.component.ts)</a>
+                            <a href="#context" title="src/test.ts" ><b>context</b>&nbsp;&nbsp;&nbsp;(src/.../test.ts)</a>
                         </li>
                         <li>
                             <a href="#environment" title="src/environments/environment.prod.ts" ><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.prod.ts)</a>
@@ -74,6 +71,9 @@
                         </li>
                         <li>
                             <a href="#qoutes" title="src/app/components/start-stop-session/start-stop-session.component.ts" ><b>qoutes</b>&nbsp;&nbsp;&nbsp;(src/.../start-stop-session.component.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#require" title="src/test.ts" ><b>require</b>&nbsp;&nbsp;&nbsp;(src/.../test.ts)</a>
                         </li>
                         <li>
                             <a href="#routes" title="src/app/app.module.ts" ><b>routes</b>&nbsp;&nbsp;&nbsp;(src/.../app.module.ts)</a>
@@ -91,45 +91,43 @@
     </table>
 </section>
 
-    <h3>src/app/app.component.ts</h3>
+    <h3>src/test.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="electron"></a>
+                    <a name="context"></a>
                     <span class="name">
-                        <span ><b>electron</b></span>
-                        <a href="#electron"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>context</b></span>
+                        <a href="#context"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>(&lt;any&gt;window).require(&#x27;electron&#x27;)</code>
+                        <i>Default value : </i><code>require.context(&#x27;./&#x27;, true, /\.spec\.ts$/)</code>
                     </td>
                 </tr>
 
 
         </tbody>
     </table>
-</section>
-    <h3>src/app/components/analysis/analysis.component.ts</h3>
-    <section>
-    <h3></h3>    <table class="table table-sm table-bordered">
+    <table class="table table-sm table-bordered">
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="electron"></a>
+                    <a name="require"></a>
                     <span class="name">
-                        <span ><b>electron</b></span>
-                        <a href="#electron"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>require</b></span>
+                        <a href="#require"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>(&lt;any&gt;window).require(&#x27;electron&#x27;)</code>
+                        <i>Type : </i>    <code>literal type</code>
+
                     </td>
                 </tr>
 
@@ -159,7 +157,27 @@
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>{
-  production: true
+  firebase: {
+    projectId: &#x27;track-a-day&#x27;,
+    appId: &#x27;1:15072224673:web:b5978b1aaa97c13c6897e0&#x27;,
+    databaseURL: &#x27;https://track-a-day-default-rtdb.firebaseio.com&#x27;,
+    storageBucket: &#x27;track-a-day.appspot.com&#x27;,
+    apiKey: &#x27;AIzaSyD8DXvXxmkkTdehZT8lZxEB70UNafb0pKg&#x27;,
+    authDomain: &#x27;track-a-day.firebaseapp.com&#x27;,
+    messagingSenderId: &#x27;15072224673&#x27;,
+    measurementId: &#x27;G-84E0YWQ582&#x27;,
+  },
+  production: true,
+  firebaseConfig: {
+    apiKey: &quot;AIzaSyD8DXvXxmkkTdehZT8lZxEB70UNafb0pKg&quot;,
+    authDomain: &quot;track-a-day.firebaseapp.com&quot;,
+    projectId: &quot;track-a-day&quot;,
+    databaseURL: &quot;https://track-a-day-default-rtdb.firebaseio.com&quot;,
+    storageBucket: &quot;track-a-day.appspot.com&quot;,
+    messagingSenderId: &quot;15072224673&quot;,
+    appId: &quot;1:15072224673:web:b5978b1aaa97c13c6897e0&quot;,
+    measurementId: &quot;G-84E0YWQ582&quot;
+  }
 }</code>
                     </td>
                 </tr>
@@ -190,7 +208,27 @@
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>{
-  production: false
+  firebase: {
+    projectId: &#x27;track-a-day&#x27;,
+    appId: &#x27;1:15072224673:web:b5978b1aaa97c13c6897e0&#x27;,
+    databaseURL: &#x27;https://track-a-day-default-rtdb.firebaseio.com&#x27;,
+    storageBucket: &#x27;track-a-day.appspot.com&#x27;,
+    apiKey: &#x27;AIzaSyD8DXvXxmkkTdehZT8lZxEB70UNafb0pKg&#x27;,
+    authDomain: &#x27;track-a-day.firebaseapp.com&#x27;,
+    messagingSenderId: &#x27;15072224673&#x27;,
+    measurementId: &#x27;G-84E0YWQ582&#x27;,
+  },
+  production: false,
+  firebaseConfig: {
+    apiKey: &quot;AIzaSyD8DXvXxmkkTdehZT8lZxEB70UNafb0pKg&quot;,
+    authDomain: &quot;track-a-day.firebaseapp.com&quot;,
+    projectId: &quot;track-a-day&quot;,
+    databaseURL: &quot;https://track-a-day-default-rtdb.firebaseio.com&quot;,
+    storageBucket: &quot;track-a-day.appspot.com&quot;,
+    messagingSenderId: &quot;15072224673&quot;,
+    appId: &quot;1:15072224673:web:b5978b1aaa97c13c6897e0&quot;,
+    measurementId: &quot;G-84E0YWQ582&quot;
+  }
 }</code>
                     </td>
                 </tr>
@@ -221,7 +259,7 @@
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>[
-  &quot;Good Work!!&quot;, 
+  &quot;Good Work!!&quot;,
   &quot;Keep it up!! You are doing great!&quot;,
   &quot;Nothing is impossible!&quot;,
   &quot;Stay Hydrated !!&quot;,
@@ -321,10 +359,13 @@
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>[
-  { path: &#x27;&#x27;, redirectTo: &#x27;/list&#x27;, pathMatch: &#x27;full&#x27; },
+  { path: &#x27;&#x27;, redirectTo: &#x27;/signin&#x27;, pathMatch: &#x27;full&#x27; },
   { path: &#x27;add&#x27;, component: TodoFormComponent },
   { path: &#x27;list&#x27;, component: TodoListComponent },
   { path: &#x27;analysis&#x27;, component: AnalysisComponent },
+  { path: &#x27;signup&#x27;, component: SignupComponent },
+  { path: &#x27;signin&#x27;, component: SigninComponent },
+  { path: &#x27;archive&#x27;, component: ArchiveListComponent}
 ]</code>
                     </td>
                 </tr>
