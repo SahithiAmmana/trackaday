@@ -75,3 +75,16 @@ Dakshil Kanakia
 
 Dhanya Dasari
 
+## Team members (Group 2) - Project 2
+
+Sahithi Ammana
+
+Mithila Reddy Tatigotla
+
+Sunandini Medisetti
+
+Sai Pavan Yalla
+
+Vineeth Dasi
+
+
