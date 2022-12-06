@@ -1,4 +1,4 @@
-![Screenshot](https://github.com/SahithiAmmana/trackaday/blob/main/images/screenshot.jpg?raw=true)
+![Screenshot](https://github.com/SahithiAmmana/trackaday/blob/main/images/Trackaday_Home.png?raw=true)
 
 
 <h2 align="center">Track-a-Day</h2>
