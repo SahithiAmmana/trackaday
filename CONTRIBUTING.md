@@ -4,9 +4,9 @@ Thanks for taking interest and contributing to this project.
 
 ## **Did you find a bug?**
 
-* **Ensure the bug was not already reported** by searching on GitHub under [Issues](https://github.com/arnab-95/se-group38-hw/issues).
+* **Ensure the bug was not already reported** by searching on GitHub under [Issues](https://github.com/SahithiAmmana/trackaday/issues).
 
-* If you're unable to find an open issue addressing the problem, [open a new one](https://github.com/arnab-95/se-group38-hw/issues/new). Be sure to include a **title and clear description**, as much relevant information as possible, and a **code sample** or an **executable test case** demonstrating the expected behavior that is not occurring.
+* If you're unable to find an open issue addressing the problem, [open a new one](https://github.com/SahithiAmmana/trackaday/issues/new). Be sure to include a **title and clear description**, as much relevant information as possible, and a **code sample** or an **executable test case** demonstrating the expected behavior that is not occurring.
 
 * Before submitting a bug, make sure it is reproduced on the latest version of the project.
 
@@ -28,7 +28,7 @@ We have most part of our code in Python. Hence, whenever changes are added to th
 
 ## Submitting changes
 
-Please send a [GitHub Pull Request to arnab-95/se-group38-hw](https://github.com/arnab-95/se-group38-hw/pull/new/master) with a clear list of what you've done (read more about [pull requests](http://help.github.com/pull-requests/)). We can always use more test coverage. Please follow our coding conventions (below) and make sure all of your commits are atomic (one feature per commit).
+Please send a [GitHub Pull Request to https://github.com/SahithiAmmana/trackaday](https://github.com/SahithiAmmana/trackaday/pulls/) with a clear list of what you've done (read more about [pull requests](http://help.github.com/pull-requests/)). We can always use more test coverage. Please follow our coding conventions (below) and make sure all of your commits are atomic (one feature per commit).
 
 Always write a clear log message for your commits. One-line messages are fine for small changes, but bigger changes should look like this:
 
@@ -42,4 +42,4 @@ Start reading our code and you'll get the hang of it. We optimize for readabilit
 
 ## Code of Conduct
 
-This project and everyone participating in it is governed by the [Project Code of Conduct](https://github.com/arnab-95/se-group38-hw/blob/main/CODE-OF-CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to the repo owner.
+This project and everyone participating in it is governed by the [Project Code of Conduct](https://github.com/SahithiAmmana/trackaday/blob/main/CODE-OF-CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to the repo owner.
