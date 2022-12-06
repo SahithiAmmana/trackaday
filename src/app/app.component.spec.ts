@@ -6,9 +6,6 @@ import { environment } from 'src/environments/environment';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-  const fixture = TestBed.createComponent(AppComponent);
-  const app = fixture.componentInstance;
-
   const toastrService = {
     success: (message?: string, title?: string, override?: Partial<IndividualConfig>) => { },
     error: (message?: string, title?: string, override?: Partial<IndividualConfig>) => { }
@@ -31,14 +28,20 @@ describe('AppComponent', () => {
   });
 
   it('should create the app', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
 
   it(`should have as title 'trackaday'`, () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
     expect(app.title).toEqual('trackaday');
   });
 
   it('should render title', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     // expect(compiled.querySelector('.content span')?.textContent).toContain('trackaday app is running!');
