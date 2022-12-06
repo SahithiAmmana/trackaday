@@ -1,4 +1,4 @@
-![Screenshot](https://github.com/vishalsh94/trackaday/blob/main/images/screenshot.jpg?raw=true)
+![Screenshot](https://github.com/SahithiAmmana/trackaday/blob/main/images/screenshot.jpg?raw=true)
 
 
 <h2 align="center">Track-a-Day</h2>
@@ -19,7 +19,7 @@ User can access a report on their session evaluation. Users receive up to 30 ses
 
 
 ## Demo Video
-https://drive.google.com/file/d/1YQajSqeIZ3xLBDmzofZ_2pLaI2lc6nsD/view
+https://drive.google.com/file/d/1V_Ozf5wHDBGzXGYqmpQZyYhj04yhkL1g/view?usp=sharing
 
 ## Installation and Usage
 
@@ -60,9 +60,6 @@ When you click on the Analytics tab, you can see information about your weekly p
 
 It shows you the number of hours worked per day as well as when you usually work during the day.
 
-
-## Documentation
-https://arnab-95.github.io/
 
 ## Team members (Group 38)
 Arnab Datta
