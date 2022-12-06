@@ -14,9 +14,9 @@ export class TodoComponent implements OnInit {
   @Input() todoInput ={} as Todo;
   private authuid:String="";
   constructor(public todoService: TodoService, private toasterService: ToastrService, public authenticationService: AuthenticationService) { }
-  
+
   ngOnInit(): void {
-    
+
   }
 
   onChange(todo: Todo) {
@@ -43,7 +43,6 @@ export class TodoComponent implements OnInit {
 
     if (todo.isCompleted){
       this.todoService.archiveTodo(todo);
-      this.toasterService.success(JSON.stringify(this.authenticationService.userID));
       this.toasterService.error(`"${todo.title.substring(0, 20)}..." Archived!`, 'Archived Successfuly');
     } else{
       this.todoService.deleteTodo(todo);

@@ -3,7 +3,6 @@ import { Chart, Point, registerables } from "chart.js";
 import { DataKey } from 'src/app/models/dataKey';
 import { getTaskTrackingStats, getTimeTrackingStats } from 'src/app/stats/stats';
 import { AppComponent } from 'src/app/app.component';
-// const electron = (<any>window).require('electron');
 
 Chart.register(...registerables);
 
@@ -28,32 +27,20 @@ export class AnalysisComponent implements OnInit {
   }
 
   readAppData(key: DataKey) {
-    // this.isReading = true;
     console.log("trying to read data")
     return new Promise(resolve => {
-      // electron.ipcRenderer.send('read-data', key)
-
-      // electron.ipcRenderer.once('read-data-reply', (event: any, result: any) => {
-      //   console.log("Data read by analysis: "+result);
-
-        // resolve(result);
-        // this.readCallback(key, result);
-        // console.log(result);
-        // eval("document.getElementById('abcd').innerHTML = JSON.stringify(" + JSON.stringify(result) + ");");
         this.appComponent.readAppData(DataKey.ALL_KEY).then(num => {
           this.result = this.appComponent.appData;
-          //this.result = result;
-  
-          this.createTimeTrackigStatsChart(); // branch1
+
+          this.createTimeTrackigStatsChart();
           this.createTaskTrackingList();
           this.createHourlyTrackingList();
         })
-      // })
     })
   }
 
   createTimeTrackigStatsChart() {
-    let stats = getTimeTrackingStats(this.result); //branch 1.1
+    let stats = getTimeTrackingStats(this.result);
     const timeTrackingStats = stats[0];
 
     const labelsList = timeTrackingStats.map((val: any[]) => val[0]);

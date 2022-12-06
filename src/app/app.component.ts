@@ -54,7 +54,6 @@ export class AppComponent {
   }
 
   showCpNotification(timeStr:string, quoteStr:string) {
-    //electron.ipcRenderer.send("cp-notification", timeStr, quoteStr);
   }
 
   readAppData(key: DataKey) {
@@ -111,7 +110,7 @@ export class AppComponent {
         const sessionRef = this.db.list('Users/'+authUID+'/sessions');
         sessionRef.valueChanges().subscribe((data)=>{
           if(data.length!=0){
-            this.sessionList = data[0] as Session[]; 
+            this.sessionList = data[0] as Session[];
           }
           else{
             this.sessionList=[];
