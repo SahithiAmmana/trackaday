@@ -69,13 +69,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AppModule.html" data-type="entity-link" >AppModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-AppModule-5b6115fd1db061e0c23f10a89ccea847a067f1ae69e24c2a9f7bb9a1e923a5f25f03ca29dad7c77e5334b1d1b6bab686b0bfd799d35ec32e6917f8b12b508ebc"' : 'data-target="#xs-components-links-module-AppModule-5b6115fd1db061e0c23f10a89ccea847a067f1ae69e24c2a9f7bb9a1e923a5f25f03ca29dad7c77e5334b1d1b6bab686b0bfd799d35ec32e6917f8b12b508ebc"' }>
+                                            'data-target="#components-links-module-AppModule-5b0b7c3a68a3ff46de893403d956ea139888a5993eadc87a2647f3891e89e8161796b4394a1929175da9ab827081a21faa61ed431dbcc43d77a9d34b03fe6f17"' : 'data-target="#xs-components-links-module-AppModule-5b0b7c3a68a3ff46de893403d956ea139888a5993eadc87a2647f3891e89e8161796b4394a1929175da9ab827081a21faa61ed431dbcc43d77a9d34b03fe6f17"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AppModule-5b6115fd1db061e0c23f10a89ccea847a067f1ae69e24c2a9f7bb9a1e923a5f25f03ca29dad7c77e5334b1d1b6bab686b0bfd799d35ec32e6917f8b12b508ebc"' :
-                                            'id="xs-components-links-module-AppModule-5b6115fd1db061e0c23f10a89ccea847a067f1ae69e24c2a9f7bb9a1e923a5f25f03ca29dad7c77e5334b1d1b6bab686b0bfd799d35ec32e6917f8b12b508ebc"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AppModule-5b0b7c3a68a3ff46de893403d956ea139888a5993eadc87a2647f3891e89e8161796b4394a1929175da9ab827081a21faa61ed431dbcc43d77a9d34b03fe6f17"' :
+                                            'id="xs-components-links-module-AppModule-5b0b7c3a68a3ff46de893403d956ea139888a5993eadc87a2647f3891e89e8161796b4394a1929175da9ab827081a21faa61ed431dbcc43d77a9d34b03fe6f17"' }>
                                             <li class="link">
                                                 <a href="components/AnalyticsComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >AnalyticsComponent</a>
                                             </li>
@@ -83,19 +83,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                                 <a href="components/AppComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >AppComponent</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/ArchiveComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ArchiveComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/ArchiveListComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ArchiveListComponent</a>
-                                            </li>
-                                            <li class="link">
                                                 <a href="components/PromptComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >PromptComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/SigninComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SigninComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/SignupComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SignupComponent</a>
                                             </li>
                                             <li class="link">
                                                 <a href="components/StartStopSessionComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >StartStopSessionComponent</a>
@@ -158,9 +146,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </div>
                             <ul class="links collapse " ${ isNormalMode ? 'id="injectables-links"' : 'id="xs-injectables-links"' }>
                                 <li class="link">
-                                    <a href="injectables/AuthenticationService.html" data-type="entity-link" >AuthenticationService</a>
-                                </li>
-                                <li class="link">
                                     <a href="injectables/TimerService.html" data-type="entity-link" >TimerService</a>
                                 </li>
                                 <li class="link">
@@ -187,9 +172,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/Todo.html" data-type="entity-link" >Todo</a>
-                            </li>
-                            <li class="link">
-                                <a href="interfaces/User.html" data-type="entity-link" >User</a>
                             </li>
                         </ul>
                     </li>
