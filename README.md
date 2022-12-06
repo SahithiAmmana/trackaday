@@ -84,6 +84,7 @@ It shows you the number of hours worked per day as well as when you usually work
 ### Hour Specific Analysis
 
 \- Negative values for usage in Legacy Code
+
 \+ Fixed Analysis part to calculate and display the data properly
 
 ## Features Introduced
