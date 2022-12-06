@@ -195,7 +195,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/components/analysis/analysis.component.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/components/analysis/analysis.component.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -262,8 +262,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="123"
-                            class="link-to-prism">src/app/components/analysis/analysis.component.ts:123</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="110"
+                            class="link-to-prism">src/app/components/analysis/analysis.component.ts:110</a></div>
                 </td>
             </tr>
 
@@ -299,8 +299,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="97"
-                            class="link-to-prism">src/app/components/analysis/analysis.component.ts:97</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="84"
+                            class="link-to-prism">src/app/components/analysis/analysis.component.ts:84</a></div>
                 </td>
             </tr>
 
@@ -336,8 +336,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="55"
-                            class="link-to-prism">src/app/components/analysis/analysis.component.ts:55</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">src/app/components/analysis/analysis.component.ts:42</a></div>
                 </td>
             </tr>
 
@@ -373,8 +373,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">src/app/components/analysis/analysis.component.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">src/app/components/analysis/analysis.component.ts:25</a></div>
                 </td>
             </tr>
 
@@ -410,8 +410,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">src/app/components/analysis/analysis.component.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">src/app/components/analysis/analysis.component.ts:29</a></div>
                 </td>
             </tr>
 
@@ -485,7 +485,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/components/analysis/analysis.component.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/components/analysis/analysis.component.ts:21</a></div>
                         </td>
                     </tr>
 
@@ -512,7 +512,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/components/analysis/analysis.component.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/components/analysis/analysis.component.ts:17</a></div>
                         </td>
                     </tr>
 
@@ -539,7 +539,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/components/analysis/analysis.component.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/components/analysis/analysis.component.ts:18</a></div>
                         </td>
                     </tr>
 
@@ -557,7 +557,6 @@ import { Chart, Point, registerables } from &quot;chart.js&quot;;
 import { DataKey } from &#x27;src/app/models/dataKey&#x27;;
 import { getTaskTrackingStats, getTimeTrackingStats } from &#x27;src/app/stats/stats&#x27;;
 import { AppComponent } from &#x27;src/app/app.component&#x27;;
-// const electron &#x3D; (&lt;any&gt;window).require(&#x27;electron&#x27;);
 
 Chart.register(...registerables);
 
@@ -582,32 +581,20 @@ export class AnalysisComponent implements OnInit {
   }
 
   readAppData(key: DataKey) {
-    // this.isReading &#x3D; true;
     console.log(&quot;trying to read data&quot;)
     return new Promise(resolve &#x3D;&gt; {
-      // electron.ipcRenderer.send(&#x27;read-data&#x27;, key)
-
-      // electron.ipcRenderer.once(&#x27;read-data-reply&#x27;, (event: any, result: any) &#x3D;&gt; {
-      //   console.log(&quot;Data read by analysis: &quot;+result);
-
-        // resolve(result);
-        // this.readCallback(key, result);
-        // console.log(result);
-        // eval(&quot;document.getElementById(&#x27;abcd&#x27;).innerHTML &#x3D; JSON.stringify(&quot; + JSON.stringify(result) + &quot;);&quot;);
         this.appComponent.readAppData(DataKey.ALL_KEY).then(num &#x3D;&gt; {
           this.result &#x3D; this.appComponent.appData;
-          //this.result &#x3D; result;
-  
-          this.createTimeTrackigStatsChart(); // branch1
+
+          this.createTimeTrackigStatsChart();
           this.createTaskTrackingList();
           this.createHourlyTrackingList();
         })
-      // })
     })
   }
 
   createTimeTrackigStatsChart() {
-    let stats &#x3D; getTimeTrackingStats(this.result); //branch 1.1
+    let stats &#x3D; getTimeTrackingStats(this.result);
     const timeTrackingStats &#x3D; stats[0];
 
     const labelsList &#x3D; timeTrackingStats.map((val: any[]) &#x3D;&gt; val[0]);

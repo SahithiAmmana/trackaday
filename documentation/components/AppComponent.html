@@ -307,8 +307,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="107"
-                            class="link-to-prism">src/app/app.component.ts:107</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="106"
+                            class="link-to-prism">src/app/app.component.ts:106</a></div>
                 </td>
             </tr>
 
@@ -346,8 +346,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="85"
-                            class="link-to-prism">src/app/app.component.ts:85</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="84"
+                            class="link-to-prism">src/app/app.component.ts:84</a></div>
                 </td>
             </tr>
 
@@ -420,8 +420,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="60"
-                            class="link-to-prism">src/app/app.component.ts:60</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="59"
+                            class="link-to-prism">src/app/app.component.ts:59</a></div>
                 </td>
             </tr>
 
@@ -489,8 +489,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="129"
-                            class="link-to-prism">src/app/app.component.ts:129</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="128"
+                            class="link-to-prism">src/app/app.component.ts:128</a></div>
                 </td>
             </tr>
 
@@ -1062,7 +1062,6 @@ export class AppComponent {
   }
 
   showCpNotification(timeStr:string, quoteStr:string) {
-    //electron.ipcRenderer.send(&quot;cp-notification&quot;, timeStr, quoteStr);
   }
 
   readAppData(key: DataKey) {
@@ -1119,7 +1118,7 @@ export class AppComponent {
         const sessionRef &#x3D; this.db.list(&#x27;Users/&#x27;+authUID+&#x27;/sessions&#x27;);
         sessionRef.valueChanges().subscribe((data)&#x3D;&gt;{
           if(data.length!&#x3D;0){
-            this.sessionList &#x3D; data[0] as Session[]; 
+            this.sessionList &#x3D; data[0] as Session[];
           }
           else{
             this.sessionList&#x3D;[];

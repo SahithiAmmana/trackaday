@@ -396,8 +396,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="53"
-                            class="link-to-prism">src/app/components/todo/todo.component.ts:53</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="52"
+                            class="link-to-prism">src/app/components/todo/todo.component.ts:52</a></div>
                 </td>
             </tr>
 
@@ -677,8 +677,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="63"
-                            class="link-to-prism">src/app/components/todo/todo.component.ts:63</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="62"
+                            class="link-to-prism">src/app/components/todo/todo.component.ts:62</a></div>
                 </td>
             </tr>
 
@@ -840,9 +840,9 @@ export class TodoComponent implements OnInit {
   @Input() todoInput &#x3D;{} as Todo;
   private authuid:String&#x3D;&quot;&quot;;
   constructor(public todoService: TodoService, private toasterService: ToastrService, public authenticationService: AuthenticationService) { }
-  
+
   ngOnInit(): void {
-    
+
   }
 
   onChange(todo: Todo) {
@@ -869,7 +869,6 @@ export class TodoComponent implements OnInit {
 
     if (todo.isCompleted){
       this.todoService.archiveTodo(todo);
-      this.toasterService.success(JSON.stringify(this.authenticationService.userID));
       this.toasterService.error(&#x60;&quot;${todo.title.substring(0, 20)}...&quot; Archived!&#x60;, &#x27;Archived Successfuly&#x27;);
     } else{
       this.todoService.deleteTodo(todo);
