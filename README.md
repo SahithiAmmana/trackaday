@@ -114,7 +114,7 @@ It shows you the number of hours worked per day as well as when you usually work
 -  Time taken for each Todo task with Title is displayed to keep track
 
 
-## Legacy Team members (Group 38)
+## Legacy Team members (Group 38) - Project 1
 Arnab Datta
 
 Vishal Sharma
@@ -125,7 +125,7 @@ Dakshil Kanakia
 
 Dhanya Dasari
 
-## Team members (Group 2) - Project 2
+## Current Team members (Group 2) - Project 2
 
 Sahithi Ammana
 
