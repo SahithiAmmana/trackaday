@@ -61,7 +61,59 @@ When you click on the Analytics tab, you can see information about your weekly p
 It shows you the number of hours worked per day as well as when you usually work during the day.
 
 
-## Team members (Group 38)
+## Improvements over legacy code
+
+### Scale 1000x
+
+\- No Users in Legacy Code
+
+\+ User Based Data scalable to more than 1000 users
+
+### Authentication
+
+\- No Authentication in Legacy Code
+
+\+ Firebase is used for Authentication
+
+### Cloud Storage
+
+\- Local Storage in Legacy Code
+
+\+ Firebase Realtime Database is used for storing user data
+
+### Hour Specific Analysis
+
+\- Negative values for usage in Legacy Code
+\+ Fixed Analysis part to calculate and display the data properly
+
+## Features Introduced
+
+### Archive Todo
+
+- A new view added to display Archived todos which can be re-used
+
+### Re-use Archived Todo
+
+- Archived Todos can be re-used which essentially creates a todo with the same title but updated timestamps and a unique id
+
+### Delete Archived Todo
+
+- Archived Todos can be deleted completely and be removed from database
+
+### Favorite Todo
+
+- Users can make Todos Favorites in both Todo view and Archive View which are segregated in Archived Todos for quick access to re-use
+
+### Pin Todo
+
+- Users can Pin Todos in Todo view which is pinned to top for prioritizing the tasks
+
+### Analysis - Todo Time
+
+-  Time taken for each Todo task with Title is displayed to keep track
+
+
+## Legacy Team members (Group 38)
 Arnab Datta
 
 Vishal Sharma
@@ -84,4 +136,9 @@ Sai Pavan Yalla
 
 Vineeth Dasi
 
+## Reach Us At
+
+### track-a-day
+
+trackaday.mail@gmail.com
 
