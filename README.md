@@ -21,6 +21,9 @@ User can access a report on their session evaluation. Users receive up to 30 ses
 ## Demo Video
 https://drive.google.com/file/d/1V_Ozf5wHDBGzXGYqmpQZyYhj04yhkL1g/view?usp=sharing
 
+## Documentation:
+https://mithila-reddy.github.io/mithila.github.io/
+
 ## Installation and Usage
 
 You must have npm installed on your system.
@@ -46,11 +49,6 @@ The desktop application should open in a new window.
 The home page has a timer and a ToDo List. You can add your items in the ToDo list and press START to begin tracking your progress.
 
 Click PAUSE if you want to take a break and STOP if you want to close out the work session.
-
-While the timer is RUNNING or is PAUSED (not STOPPED) you will receive a desktop notification (works on both Windows and Mac) every hour to make sure you are engaged and not distracted during your session. (This will run at the beginning of every hour e.g. at 1PM, 2PM, 3PM etc according to the local clock of your computer)
-
-![Screenshot](https://github.com/vishalsh94/trackaday/blob/main/images/hourly_notification.png?raw=true)
-
 
 When you click STOP and close out the session, the amount of time you worked, took a break and the number of activities you completed will be logged in the database.
 
